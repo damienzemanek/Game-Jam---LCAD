@@ -5,14 +5,15 @@ using DependencyInjection;
 using UnityEngine;
 
 [Serializable]
-public class GroceryList : RuntimeInjectableMonoBehaviour, IDependencyProvider
+public class GroceryList : MonoBehaviour
 {
-    [Provide] GroceryList Provide() => this;
+    public static GroceryList Instance;
+    
     [SerializeReference] public List<GroceryItem> items;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -23,15 +24,25 @@ public class GroceryList : RuntimeInjectableMonoBehaviour, IDependencyProvider
 [Serializable]
 public class GroceryItem
 {
-    [SerializeField] bool have;
-    [SerializeField] string _name;
+    public enum ItemType
+    {
+        Apple,
+        Bread,
+        Soup,
+        Cereal,
+        Soda
+    }
 
-    public string name { get => _name; set => _name = value; }
+    [SerializeField] bool _have;
+    [SerializeField] ItemType _type;
+
+    public bool have { get => _have ; set => _have = value; }
+    public ItemType type { get => _type; set => _type = value; }
 
     public GroceryItem Copy()
     {
         GroceryItem newItem = new GroceryItem();
-        newItem.name = name;
+        newItem.type = type;
         newItem.have = have;
         return newItem;
     }

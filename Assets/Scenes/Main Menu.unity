@@ -247,10 +247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -559,8 +559,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 77.1
+  m_fontSizeBase: 77.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -645,8 +645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -49}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -95}
+  m_SizeDelta: {x: 410.883, y: 122.114}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1134418532
 MonoBehaviour:
@@ -774,19 +774,37 @@ MonoBehaviour:
   items:
   - rid: 1805014547506921500
   - rid: 1805014547506921501
+  - rid: 1805014547506921535
+  - rid: 1805014547506921536
+  - rid: 1805014547506921537
   references:
     version: 2
     RefIds:
     - rid: 1805014547506921500
       type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
       data:
-        have: 0
-        _name: Apple
+        _have: 0
+        _type: 0
     - rid: 1805014547506921501
       type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
       data:
-        have: 0
-        _name: Bread
+        _have: 0
+        _type: 1
+    - rid: 1805014547506921535
+      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
+      data:
+        _have: 0
+        _type: 2
+    - rid: 1805014547506921536
+      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
+      data:
+        _have: 0
+        _type: 3
+    - rid: 1805014547506921537
+      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
+      data:
+        _have: 0
+        _type: 4
 --- !u!4 &1315787826
 Transform:
   m_ObjectHideFlags: 0
