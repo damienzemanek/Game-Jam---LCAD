@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     PlayerCombat combat;
-    [SerializeField] float speed;
+    [SerializeField, ReadOnly] float speed;
 
     public void Init(float _speed)
     {
-        _speed = speed;
+        speed = _speed;
     }
 
     private void Awake()
@@ -19,6 +20,6 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(transform.forward * speed);
+        transform.Translate(-transform.forward * speed);
     }
 }

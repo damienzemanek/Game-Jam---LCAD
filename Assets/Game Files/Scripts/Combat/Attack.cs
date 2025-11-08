@@ -27,10 +27,12 @@ public class Directional : Attack
         GameObject projectile = GameObject.Instantiate(
             projectilePrefab,
             startPos.position,
-            Quaternion.LookRotation(direction),
+            Quaternion.identity,
             null
             );
 
         projectile.TryGet<Projectile>().Init(speed);
+
+        this.Log($"Shot projectile w/ speed {speed}");
     }
 }

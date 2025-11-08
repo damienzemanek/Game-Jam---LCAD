@@ -15,7 +15,6 @@ public class PlayerCombat : MonoBehaviour
 
     [TitleGroup("Combat")]
     [SerializeField] GameObject combatDisplay;
-    [SerializeField] Transform[] projectileSpawnPositions;
     [SerializeField] Enemy enemy { get => world.currentEncounter.currentEnemy; }
 
     private void Awake()
@@ -41,6 +40,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if (inCombat) return;
         inCombat = true;
+
+        StartCoroutine(C_CombatCycle());
     }
 
     public void ExitCombat()
@@ -52,7 +53,8 @@ public class PlayerCombat : MonoBehaviour
     {
         while (inCombat)
         {
-            yield return null;
+            yield return new WaitForSeconds(1);
+            enemy.type.StartCombo();
         }
     }
 
