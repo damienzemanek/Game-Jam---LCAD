@@ -6,52 +6,86 @@ using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class RepeatWorld : RuntimeInjectableMonoBehaviour
+public class RepeatWorld : MonoBehaviour, IDependencyProvider
 {
-    [Inject] Movement move;
+    [Provide] RepeatWorld Provide() => this;
+    [SerializeField] int amountOfEncounters = 2;
+    [SerializeField, ReadOnly] int encountersLeft = 2;
     [SerializeField] float encounterSectionObjsMoveAmount = 50f;
     [SerializeField] float moveTime = 3f;
-    [SerializeField] List<GameObject> encounterSectionObjs;
+    [SerializeField] List<Encounter> encounters;
     [SerializeField] Transform nextEncounterPos;
 
-    protected override void OnInstantiate()
+    [ShowInInspector] public Encounter currentEncounter { get => encounters == null? null : encounters[0]; }
+
+    void Awake()
     {
-        base.OnInstantiate();
-        if (encounterSectionObjs == null || encounterSectionObjs.Count == 0) this.Error("No encounter objs set");
+        if (encounters == null || encounters.Count == 0) this.Error("No encounter objs set");
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        HookIntoMove();
+        encountersLeft = amountOfEncounters;
     }
+
 
 
     [Button]
-    void NextEncounterEnviorment() 
-    { 
-        encounterSectionObjs.ForEach(e => 
+    public void TransitionToNextEncounter()
+    {
+        encountersLeft--;
+
+        if (encountersLeft > 0)
+        {
+            TransitionEnviroment();
+            this.DelayedCall(() => InitNextEncounter(false), moveTime);
+        }
+        else
+            CompleteDungeon();
+
+    }
+
+    void CompleteDungeon()
+    {
+        TransitionEnviroment();
+        InitNextEncounter(true);
+    }
+
+
+    void TransitionEnviroment() 
+    {
+        encounters.ForEach(e => 
         { 
-            Vector3 endPoint = e.transform.position.With(z: e.transform.position.z - encounterSectionObjsMoveAmount); 
-            e.transform.Slerp(endPoint, 5f, this, SetLastUsedEncounterToNextUse);
+            Vector3 endPoint = e.transform.position.With(z: e.transform.position.z - encounterSectionObjsMoveAmount);
+            e.transform.Slerp(
+                endPoint,
+                moveTime, this
+            );
         });
     }
 
-    void SetLastUsedEncounterToNextUse()
+    void InitNextEncounter(bool dungeonComplete)
     {
-        print("go");
-        encounterSectionObjs[0].transform.position = nextEncounterPos.position;
-        encounterSectionObjs.Swap(0, 1);
-        
+        SetLastUsedEncounterToNextUse();
+
+
+        if(!dungeonComplete)
+            currentEncounter.SpawnRandomEnemy();
+        else
+            currentEncounter.SpawnDungeonCompleteItem();
+
+
+
+
+        void SetLastUsedEncounterToNextUse()
+        {
+            print("go");
+            encounters[0].transform.position = nextEncounterPos.position;
+            encounters.Swap(0, 1);
+
+        }
     }
 
-    void HookIntoMove()
-    {
-        move.onMoveHook.AddListener(NextEncounterEnviorment);
-    }
 
-    private void OnDisable()
-    {
-        move.onMoveHook.RemoveListener(NextEncounterEnviorment);
-    }
 
 }

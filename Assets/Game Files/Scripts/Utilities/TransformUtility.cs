@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public static class TransformUtility 
 {
     public static void Slerp(this Transform myTransform, Vector3 to, float duration, MonoBehaviour mono, Action endHook = null)
-        => mono.StartCoroutine(C_Slerp(myTransform, to, duration));
+        => mono.StartCoroutine(C_Slerp(myTransform, to, duration, endHook));
 
     public static IEnumerator C_Slerp(this Transform myTransform, Vector3 to, float duration, Action endHook = null)
     {
