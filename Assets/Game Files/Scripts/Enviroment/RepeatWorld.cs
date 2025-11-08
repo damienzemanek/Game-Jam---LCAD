@@ -16,14 +16,22 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
     [SerializeField] float moveTime = 3f;
     [SerializeField] List<Encounter> encounters;
     [SerializeField] Transform nextEncounterPos;
+
+    [SerializeField] public UnityEventPlus startCombatHook;
     [SerializeField] UnityEventPlus dungeonCompleteHook;
 
     [ShowInInspector] public Encounter currentEncounter { get => encounters == null? null : encounters[0]; }
+
+    private void Awake()
+    {
+        if (startCombatHook == null) startCombatHook = new UnityEventPlus();
+    }
 
     void Start()
     {
         if (encounters == null || encounters.Count == 0) this.Error("No encounter objs set");
         encountersLeft = amountOfEncounters;
+        TransitionToNextEncounter();
     }
 
     [Button]
@@ -66,8 +74,11 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
         SetLastUsedEncounterToNextUse();
 
 
-        if(!dungeonComplete)
+        if (!dungeonComplete)
+        {
             currentEncounter.SpawnRandomEnemy();
+            startCombatHook?.get?.Invoke();
+        }
         else
             currentEncounter.SpawnDungeonCompleteItem();
 
