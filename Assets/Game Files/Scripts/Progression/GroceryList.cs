@@ -5,10 +5,16 @@ using DependencyInjection;
 using UnityEngine;
 
 [Serializable]
-public class GroceryList : MonoBehaviour, IDependencyProvider
+public class GroceryList : RuntimeInjectableMonoBehaviour, IDependencyProvider
 {
     [Provide] GroceryList Provide() => this;
     [SerializeReference] public List<GroceryItem> items;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        DontDestroyOnLoad(gameObject);
+    }
 
 
 }

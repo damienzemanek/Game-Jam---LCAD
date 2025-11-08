@@ -5,6 +5,7 @@ using DependencyInjection;
 using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RepeatWorld : MonoBehaviour, IDependencyProvider
 {
@@ -15,20 +16,15 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
     [SerializeField] float moveTime = 3f;
     [SerializeField] List<Encounter> encounters;
     [SerializeField] Transform nextEncounterPos;
+    [SerializeField] UnityEventPlus dungeonCompleteHook;
 
     [ShowInInspector] public Encounter currentEncounter { get => encounters == null? null : encounters[0]; }
 
-    void Awake()
+    void Start()
     {
         if (encounters == null || encounters.Count == 0) this.Error("No encounter objs set");
-    }
-
-    private void Start()
-    {
         encountersLeft = amountOfEncounters;
     }
-
-
 
     [Button]
     public void TransitionToNextEncounter()
@@ -49,6 +45,7 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
     {
         TransitionEnviroment();
         InitNextEncounter(true);
+        dungeonCompleteHook?.InvokeWithDelay(this);
     }
 
 
