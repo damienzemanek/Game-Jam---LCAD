@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Extensions
@@ -47,6 +48,18 @@ namespace Extensions
         public static T Rand<T>(this List<T> ts, int min, int max)
         {
             return ts[UnityEngine.Random.Range(min, max)];
+        }
+
+        public static List<T> Swap<T>(this List<T> list, int first, int second)
+        {
+            if (first == second) return list;
+            if (first < 0 || second < 0 || first >= list.Count || second >= list.Count) throw new ArgumentOutOfRangeException();
+
+            T buffer = list[first];
+            list[first] = list[second];
+            list[second] = buffer;
+
+            return list;
         }
 
 

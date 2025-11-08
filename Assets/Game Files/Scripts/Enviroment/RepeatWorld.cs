@@ -11,12 +11,13 @@ public class RepeatWorld : RuntimeInjectableMonoBehaviour
     [Inject] Movement move;
     [SerializeField] float encounterSectionObjsMoveAmount = 50f;
     [SerializeField] float moveTime = 3f;
-    [SerializeField] GameObject[] encounterSectionObjs;
+    [SerializeField] List<GameObject> encounterSectionObjs;
+    [SerializeField] Transform nextEncounterPos;
 
-    private void OnInstantiate()
+    protected override void OnInstantiate()
     {
         base.OnInstantiate();
-        if (encounterSectionObjs == null || encounterSectionObjs.Length == 0) this.Error("No encounter objs set");
+        if (encounterSectionObjs == null || encounterSectionObjs.Count == 0) this.Error("No encounter objs set");
     }
 
     private void OnEnable()
@@ -24,17 +25,24 @@ public class RepeatWorld : RuntimeInjectableMonoBehaviour
         HookIntoMove();
     }
 
+
     [Button]
-    void NextEncounterEnviorment()
-    {
-        for(int i = 0; i < encounterSectionObjs.Length; i++)
-        {
-            GameObject e = encounterSectionObjs[i];
-            Vector3 endPoint = e.transform.position.With(z: e.transform.position.y - encounterSectionObjsMoveAmount);
-            e.transform.Slerp(endPoint, moveTime, this);
-        }
+    void NextEncounterEnviorment() 
+    { 
+        encounterSectionObjs.ForEach(e => 
+        { 
+            Vector3 endPoint = e.transform.position.With(z: e.transform.position.z - encounterSectionObjsMoveAmount); 
+            e.transform.Slerp(endPoint, 5f, this, SetLastUsedEncounterToNextUse);
+        });
     }
 
+    void SetLastUsedEncounterToNextUse()
+    {
+        print("go");
+        encounterSectionObjs[0].transform.position = nextEncounterPos.position;
+        encounterSectionObjs.Swap(0, 1);
+        
+    }
 
     void HookIntoMove()
     {
