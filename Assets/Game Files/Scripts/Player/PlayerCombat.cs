@@ -8,9 +8,20 @@ using UnityEngine;
 [DefaultExecutionOrder(500)]
 public class PlayerCombat : MonoBehaviour
 {
+    public static PlayerCombat Instance;
+
     [Inject] RepeatWorld world;
     [SerializeField] bool inCombat;
 
+    [TitleGroup("Combat")]
+    [SerializeField] GameObject combatDisplay;
+    [SerializeField] Transform[] projectileSpawnPositions;
+    [SerializeField] Enemy enemy { get => world.currentEncounter.currentEnemy; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -37,10 +48,24 @@ public class PlayerCombat : MonoBehaviour
         inCombat = false;
     }
 
+    public IEnumerator C_CombatCycle()
+    {
+        while (inCombat)
+        {
+            yield return null;
+        }
+    }
+
     [Button]
     public void KillEnemy()
     {
         world.currentEncounter.EnsureKillEnemy();
         ExitCombat();
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Projectile")) return;
     }
 }

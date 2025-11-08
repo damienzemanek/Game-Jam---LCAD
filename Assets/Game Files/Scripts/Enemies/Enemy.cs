@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeReference] EnemyType type;
     [SerializeField] Animator animator;
 
+
+
     private void Awake()
     {
         animator = this.TryGet<Animator>();

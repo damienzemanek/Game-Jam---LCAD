@@ -14,7 +14,10 @@ public class Encounter : RuntimeInjectableMonoBehaviour
     [Inject] EnemyDb enemies;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Transform completeItemSpawnPoint;
-    [SerializeField, ReadOnly] Enemy currentEnemy;
+    [SerializeField, ReadOnly] Enemy _currentEnemy;
+
+    public Enemy currentEnemy { get => _currentEnemy; set => currentEnemy = value; }
+
 
     private void Awake()
     {
