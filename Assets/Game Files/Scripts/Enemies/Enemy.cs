@@ -80,6 +80,8 @@ public abstract class EnemyType
 [Serializable]
 public class Dragon : EnemyType
 {
+    public string name { get => "DRAGON"; }
+
     public Dragon() : base() { }
 
     public override void StartCombo(Action postHook = null)
