@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -61,6 +62,25 @@ public static class TransformUtility
         }
 
         myTransform.localScale = to;
+        endHook?.Invoke();
+    }
+
+    public static void LerpRot(this Transform myTransform, Quaternion to, float duration, MonoBehaviour mono, Action endHook = null)
+    => mono.StartCoroutine(C_LerpRot(myTransform, to, duration, endHook));
+
+    public static IEnumerator C_LerpRot(this Transform myTransform, Quaternion to, float duration, Action endHook = null)
+    {
+        Quaternion start = myTransform.rotation;
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            myTransform.rotation = Quaternion.Lerp(start, to, t);
+            yield return null;
+        }
+
+        myTransform.rotation = to;
         endHook?.Invoke();
     }
 }
