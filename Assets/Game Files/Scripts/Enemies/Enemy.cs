@@ -168,7 +168,7 @@ public class KnightCaptain : EnemyType
 [Serializable]
 public class CashRegisterEmployeeBoss : EnemyType
 {
-    public override string name { get => "EMPLOYEE"; }
+    public override string name => "<color=#FF0000>CASHIER</color>";
 
     public CashRegisterEmployeeBoss() : base() { }
 
