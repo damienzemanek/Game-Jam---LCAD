@@ -1037,6 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 0.8, y: 0.8, z: 0.8}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -1131,12 +1132,12 @@ MonoBehaviour:
       type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
       data:
         _have: 0
-        _type: 2
+        _type: 3
     - rid: 1805014547506921517
       type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
       data:
         _have: 0
-        _type: 3
+        _type: 4
 --- !u!4 &1315787826
 Transform:
   m_ObjectHideFlags: 0

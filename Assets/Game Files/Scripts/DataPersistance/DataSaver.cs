@@ -34,6 +34,7 @@ public class DataSaver : MonoBehaviour
     {
         if (persistanceReferenceToList == null) this.Error("No grocery list is assigned");
 
+
         SaveData data = new SaveData();
 
         data.items = persistanceReferenceToList.items
