@@ -126,7 +126,7 @@ public class Knight : EnemyType
 [Serializable]
 public class SkeletonArcher : EnemyType
 {
-    public override string name { get => "SKELETON"; }
+    public override string name { get => "SKELETON ARCHER"; }
 
     public SkeletonArcher() : base() { }
 
@@ -140,7 +140,7 @@ public class SkeletonArcher : EnemyType
 [Serializable]
 public class SkeletonWarrior : EnemyType
 {
-    public override string name { get => "SKELETON"; }
+    public override string name { get => "SKELETON WARRIOR"; }
 
     public SkeletonWarrior() : base() { }
 
