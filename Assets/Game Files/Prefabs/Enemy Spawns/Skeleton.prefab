@@ -113,42 +113,37 @@ MonoBehaviour:
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 0.5
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 8625187888664000814}
         rotation: {x: 0, y: 0, z: 0}
-        speed: 0.4
     - rid: 1805014573513965621
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 2944028211250639276}
         rotation: {x: 0, y: 0, z: 0}
-        speed: 0.4
     - rid: 1805014573513965622
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1.5
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 5380851124600563859}
         rotation: {x: 0, y: 0, z: 0}
-        speed: 0.4
     - rid: 1805014573513965623
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 3930280260571890038}
         rotation: {x: 3, y: 0, z: 0}
-        speed: 0.15
     - rid: 1805014573513965624
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 5005679426571587399}
         rotation: {x: -3, y: 0, z: 0}
-        speed: 0.15
     - rid: 1805014573513965625
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
@@ -156,47 +151,41 @@ MonoBehaviour:
         projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
         startPos: {fileID: 3930280260571890038}
         rotation: {x: 3, y: -9, z: 0}
-        speed: 0.15
     - rid: 1805014573513965626
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 8625187888664000814}
         rotation: {x: 4, y: 0, z: 6}
-        speed: 0.4
     - rid: 1805014573513965627
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1.5
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 8428250621908619022}
         rotation: {x: 0, y: -4, z: 0}
-        speed: 0.4
     - rid: 1805014573513965628
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 2
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 2944028211250639276}
         rotation: {x: 4, y: 0, z: 6}
-        speed: 0.44
     - rid: 1805014573513965629
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 3
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 5005679426571587399}
         rotation: {x: 0, y: 0, z: -6}
-        speed: 0.1
     - rid: 1805014584844877841
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 2
-        projectilePrefab: {fileID: 9179178493342575502, guid: 60f3b1a0fbca2ff45841526b08da5b48, type: 3}
+        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 8428250621908619022}
         rotation: {x: 0, y: 0, z: 0}
-        speed: 0.4
 --- !u!114 &3070186455941720216
 MonoBehaviour:
   m_ObjectHideFlags: 0

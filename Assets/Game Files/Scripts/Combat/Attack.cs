@@ -19,7 +19,6 @@ public class Directional : Attack
 {
     [SerializeField] Transform startPos;
     [SerializeField] Vector3 rotation;
-    [SerializeField] float speed = 0.1f;
     public override void Execute()
     {
         if(projectilePrefab == null) this.Error("Directionals need projectiles");
@@ -36,8 +35,8 @@ public class Directional : Attack
             );
 
 
-        projectile.TryGet<Projectile>().Init(speed);
+        projectile.TryGet<Projectile>().Init();
 
-        this.Log($"Shot projectile w/ speed {speed}");
+        this.Log($"Shot projectile");
     }
 }

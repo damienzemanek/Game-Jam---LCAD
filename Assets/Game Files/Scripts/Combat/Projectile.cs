@@ -16,9 +16,9 @@ public class Projectile : MonoBehaviour
     public float dmg { get => _dmg; set => _dmg = value; }
     
 
-    public void Init(float _speed)
+    public void Init()
     {
-        speed = _speed;
+       
     }
 
     private void Awake()
