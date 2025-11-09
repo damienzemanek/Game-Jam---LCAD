@@ -7,6 +7,6 @@ public class EventHook : MonoBehaviour
     public UnityEventPlus hook;
 
     public void Execute() => hook?.get?.Invoke();
-    public void Execute(float delay) => hook?.InvokeWithDelay(this);
+    public void ExecuteDelayed() => hook?.InvokeWithDelay(this);
 
 }
