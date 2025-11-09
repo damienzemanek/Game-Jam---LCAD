@@ -91,4 +91,20 @@ public class Dragon : EnemyType
         combos.Rand().AttackLinear(postHook);
     }
 
+
+
+}
+
+[Serializable]
+public class Knight : EnemyType
+{
+    public override string name { get => "Knight"; }
+
+    public Knight() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+
 }
