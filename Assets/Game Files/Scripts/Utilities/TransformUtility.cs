@@ -37,11 +37,30 @@ public static class TransformUtility
         while (t < 1f)
         {
             t += Time.deltaTime / duration;
-            myTransform.position = Vector3.Slerp(start, to, t);
+            myTransform.position = Vector3.Lerp(start, to, t);
             yield return null;
         }
 
         myTransform.position = to;
+        endHook?.Invoke();
+    }
+
+    public static void LerpScale(this Transform myTransform, Vector3 to, float duration, MonoBehaviour mono, Action endHook = null)
+        => mono.StartCoroutine(C_LerpScale(myTransform, to, duration, endHook));
+
+    public static IEnumerator C_LerpScale(this Transform myTransform, Vector3 to, float duration, Action endHook = null)
+    {
+        Vector3 start = myTransform.localScale;
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            myTransform.localScale = Vector3.Lerp(start, to, t);
+            yield return null;
+        }
+
+        myTransform.localScale = to;
         endHook?.Invoke();
     }
 }
