@@ -28,6 +28,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] Enemy enemy { get => world.currentEncounter.currentEnemy; }
     [SerializeField] public UnityEvent<float> onTakeDmgHook;
     [SerializeField] public UnityEvent onEnemyDefenceHook;
+    [SerializeField] public UnityEvent onAttackHook;
+
 
     [SerializeField] public GameObject destroyProjEffect;
     [ShowInInspector, ReadOnly] bool comboing = false;
@@ -46,6 +48,8 @@ public class PlayerCombat : MonoBehaviour
     {
         Instance = this;
         if(onTakeDmgHook == null) onTakeDmgHook = new();
+        if(onAttackHook == null) onAttackHook = new();
+        if(onEnemyDefenceHook == null) onEnemyDefenceHook = new();
         combatDisplays.SetAllActive(false);
     }
 
@@ -123,7 +127,7 @@ public class PlayerCombat : MonoBehaviour
 
     void EnemyAttack()
     {
-        if (!Input.GetKey(KeyCode.Mouse0)) return;
+        if (!Input.GetKeyDown(KeyCode.Mouse0)) return;
 
         Vector3 mousePos = Input.mousePosition;
 
@@ -133,6 +137,8 @@ public class PlayerCombat : MonoBehaviour
         {
             if (hit.transform.tag != "Projectile") return;
             hit.transform.TryGet<Projectile>().ClickedOn();
+            onAttackHook?.Invoke();
+            return;
         }
     }
 

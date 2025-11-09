@@ -2201,6 +2201,9 @@ MonoBehaviour:
   onEnemyDefenceHook:
     m_PersistentCalls:
       m_Calls: []
+  onAttackHook:
+    m_PersistentCalls:
+      m_Calls: []
   destroyProjEffect: {fileID: 6533755092846129089, guid: be74be0a54d86f946930031e3d5cfc7a, type: 3}
   delayBetweenPhases: 3
   dmg: 1
@@ -2324,8 +2327,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1537038406}
-  maxHp: 10
-  currentHp: 10
+  maxHp: 9999
+  currentHp: 9999
   onDeathHook:
     delayType: 0
     delay: 0
@@ -2358,14 +2361,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1874820769}
-  crossFade: 0.2
+  crossFade: 0.15
   attacking: 0
-  left: 0
   right: 0
   atkToLeft:
   - AttackToLeft
+  - AttackToLeft2
   atkToRight:
   - AttackToRight
+  - AttackToRight2
 --- !u!1 &967335715
 GameObject:
   m_ObjectHideFlags: 0
