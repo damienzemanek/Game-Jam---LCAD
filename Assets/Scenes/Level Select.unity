@@ -1158,6 +1158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 7.3, y: 7.3, z: 7.3}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -1176,12 +1177,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.3
   objToMove: {fileID: 129222310}
+  onMouseOver: 1
+  destroyAfter: 0
   transform_: 1
   vector3: 0
   origPos: {fileID: 1469053602}
   movedPos: {fileID: 747823649}
   origVec3Pos: {x: 0, y: 0, z: 0}
-  newVec3Pos: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &49820117
 GameObject:
   m_ObjectHideFlags: 0
@@ -11916,6 +11919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 7.3, y: 7.3, z: 7.3}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -11934,12 +11938,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.3
   objToMove: {fileID: 1875414851}
+  onMouseOver: 1
+  destroyAfter: 0
   transform_: 1
   vector3: 0
   origPos: {fileID: 1469053602}
   movedPos: {fileID: 747823649}
   origVec3Pos: {x: 0, y: 0, z: 0}
-  newVec3Pos: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &717198579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13846,6 +13852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 7.3, y: 7.3, z: 7.3}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -13864,12 +13871,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.3
   objToMove: {fileID: 2020005210}
+  onMouseOver: 1
+  destroyAfter: 0
   transform_: 1
   vector3: 0
   origPos: {fileID: 1469053602}
   movedPos: {fileID: 747823649}
   origVec3Pos: {x: 0, y: 0, z: 0}
-  newVec3Pos: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &875226891
 GameObject:
   m_ObjectHideFlags: 0
@@ -14400,6 +14409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 1.2, y: 1.2, z: 1.2}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -14463,12 +14473,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.2
   objToMove: {fileID: 284238103}
+  onMouseOver: 1
+  destroyAfter: 0
   transform_: 0
   vector3: 0
   origPos: {fileID: 527436156}
   movedPos: {fileID: 1360381721}
   origVec3Pos: {x: 0, y: 0, z: 0}
-  newVec3Pos: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &904583732
 GameObject:
   m_ObjectHideFlags: 0
@@ -17237,6 +17249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 2.7, y: 2.7, z: 2.7}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -19878,6 +19891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 2.7, y: 2.7, z: 2.7}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -24708,6 +24722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.4
+  onMouseOver: 1
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 7.3, y: 7.3, z: 7.3}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
@@ -24726,12 +24741,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.3
   objToMove: {fileID: 30646694}
+  onMouseOver: 1
+  destroyAfter: 0
   transform_: 1
   vector3: 0
   origPos: {fileID: 1469053602}
   movedPos: {fileID: 747823649}
   origVec3Pos: {x: 0, y: 0, z: 0}
-  newVec3Pos: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1654079045
 GameObject:
   m_ObjectHideFlags: 0
