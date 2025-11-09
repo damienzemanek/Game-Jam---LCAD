@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7823123015122445235}
   - component: {fileID: 4639053234612078012}
   - component: {fileID: 7592544055410579444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Destroy Proj Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4724322119375924660}
   - component: {fileID: 295017552413535487}
   - component: {fileID: 6774171965147297403}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

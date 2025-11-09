@@ -17,7 +17,7 @@ public class WeaponAnimator : MonoBehaviour
 
     private void Awake()
     {
-        right = true;
+        right = false;
     }
 
     private void OnEnable()

@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class UIJitter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] float duration;
+    [SerializeField] bool onMouseOver = true;
 
     [SerializeField, ReadOnly] Vector3 initialSize;
     [SerializeField] Vector3 sizeJitterIncrease;
@@ -22,27 +23,37 @@ public class UIJitter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData data)
     {
-        Jitter();
+        if(onMouseOver)
+            Jitter();
     }
 
     public void OnPointerExit(PointerEventData data)
     {
-        ResetJitter();
+        if (onMouseOver)
+            ResetJitter();
     }
 
 
-    void Jitter()
+    public void Jitter()
     {
         StopAllCoroutines();
         transform.LerpScale(sizeJitterIncrease, duration, this);
         transform.LerpRot(rotTo, duration, this);
     }
 
-    void ResetJitter()
+    public void ResetJitter()
     {
         StopAllCoroutines();
         transform.LerpScale(initialSize, duration, this);
         transform.LerpRot(initialRot, duration, this);
 
     }
+
+    [Button]
+    public void JitterThenReset()
+    {
+        transform.LerpScale(sizeJitterIncrease, duration, this);
+        transform.LerpRot(rotTo, duration, this, ResetJitter);
+    }
+
 }

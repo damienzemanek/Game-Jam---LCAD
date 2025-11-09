@@ -77,10 +77,8 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        if (inCombat)
-            EnemyAttack();
-        else if (inDefence)
-            EnemyDefence();
+        EnemyAttack();
+        EnemyDefence();
     }
 
     public void EnterCombat()
@@ -193,8 +191,8 @@ public class PlayerCombat : MonoBehaviour
         GameObject hit = results.FirstOrDefault(r => r.gameObject.tag == "Defence").gameObject;
         if (hit == null) { this.Log("no hit"); return; }
 
-        Destroy(hit.gameObject);
         enemy.TryGet<Health>().TakeDamage(dmg);
+        hit.gameObject.TryGet<HitAvaliable>().Hit();
         onEnemyDefenceHook?.Invoke();
     }
 

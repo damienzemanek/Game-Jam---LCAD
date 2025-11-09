@@ -93,8 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5481239360754942147}
   - component: {fileID: 2037163351246607844}
-  - component: {fileID: 7712835784259169010}
   - component: {fileID: 27815059747616370}
+  - component: {fileID: -7416233428158021019}
   m_Layer: 6
   m_Name: Projectile
   m_TagString: Projectile
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 9179178493342575502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -139,21 +139,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.0200877, z: 1}
   m_Center: {x: 0, y: 0.006874293, z: 0}
---- !u!114 &7712835784259169010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179178493342575502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b1ccb8d72e6384886edd92588f0ce4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  _dmg: 1
-  projectileHealth: 1
 --- !u!54 &27815059747616370
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,7 +147,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179178493342575502}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -181,3 +166,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7416233428158021019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179178493342575502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b1ccb8d72e6384886edd92588f0ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  _dmg: 1
+  projectileHealth: 1
+  dirOfTravel: {x: 0, y: 0, z: -1}

@@ -8,9 +8,10 @@ using System.Linq;
 public class Projectile : MonoBehaviour
 {
     PlayerCombat combat;
-    [SerializeField, ReadOnly] float speed;
+    [SerializeField] float speed;
     [SerializeField] float _dmg = 1f;
     [SerializeField] int projectileHealth = 1;
+    [SerializeField] Vector3 dirOfTravel;
 
     public float dmg { get => _dmg; set => _dmg = value; }
     
@@ -28,7 +29,8 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.Translate(-transform.forward * speed);
+        //ransform.position = transform.position + dirOfTravel * speed;
+        transform.Translate(dirOfTravel * speed);
     }
 
     public void ClickedOn()

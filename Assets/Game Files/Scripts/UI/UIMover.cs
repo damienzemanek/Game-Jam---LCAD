@@ -10,6 +10,8 @@ public class UIMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] float duration;
     [SerializeField] GameObject objToMove;
 
+    [SerializeField] bool onMouseOver = true;
+    [SerializeField] bool destroyAfter = false;
     [SerializeField] bool transform_;
     [SerializeField] bool vector3;
 
@@ -19,45 +21,59 @@ public class UIMover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
 
     [SerializeField, ShowIf("vector3"), ReadOnly] Vector3 origVec3Pos;
-    [SerializeField, ShowIf("vector3")] Vector3 newVec3Pos;
+    [SerializeField, ShowIf("vector3")] Vector3 offset;
 
     private void Awake()
     {
-        origVec3Pos = transform.localPosition;
+        origVec3Pos = objToMove.transform.localPosition;
     }
 
     public void OnPointerEnter(PointerEventData data)
     {
-        MoveTo();
+        if(onMouseOver) 
+            MoveTo();
     }
 
     public void OnPointerExit(PointerEventData data)
     {
-        MoveBack();
+        if (onMouseOver)
+            MoveBack();
     }
 
 
-    void MoveTo()
+    public void MoveTo()
     {
         StopAllCoroutines();
 
         if (vector3)
         {
-            objToMove.transform.Lerp(origVec3Pos + newVec3Pos, duration, mono: this);
+            Vector3 newPos = origVec3Pos + offset;
+            Vector3 newPosWorld = objToMove.transform.parent 
+                ? objToMove.transform.parent.TransformPoint(newPos)
+                : newPos;
+
+            objToMove.transform.Lerp(newPosWorld, duration, mono: this, DoDestroy);
             return;
         }
         
-        objToMove.transform.Lerp(movedPos.position, duration, mono: this);
+        objToMove.transform.Lerp(movedPos.position, duration, mono: this, DoDestroy);
     }
 
-    void MoveBack()
+    public void MoveBack()
     {
         if (vector3)
         {
-            objToMove.transform.Lerp(origVec3Pos, duration, mono: this);
+            objToMove.transform.Lerp(origVec3Pos, duration, mono: this, DoDestroy);
             return;
         }
-        objToMove.transform.Lerp(origPos.position, duration, this);
+        objToMove.transform.Lerp(origPos.position, duration, this, DoDestroy);
         this.Log("moving");
     }
+
+    void DoDestroy()
+    {
+        if(destroyAfter)
+            Destroy(gameObject);
+    }
+
 }

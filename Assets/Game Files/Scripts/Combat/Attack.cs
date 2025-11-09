@@ -24,14 +24,14 @@ public class Directional : Attack
     {
         if(projectilePrefab == null) this.Error("Directionals need projectiles");
 
-        //Quaternion baseRot = startPos.rotation;
-        //Vector3 newRotValues = baseRot.eulerAngles;
-        //newRotValues += rotation;
+        Quaternion baseRot = startPos.rotation;
+        Vector3 newRotValues = baseRot.eulerAngles;
+        newRotValues += rotation;
 
         GameObject projectile = GameObject.Instantiate(
             projectilePrefab,
             startPos.position,
-            Quaternion.Euler(rotation),
+            Quaternion.Euler(newRotValues),
             null
             );
 
