@@ -31,6 +31,7 @@ public class MoveForwardAndBack : MonoBehaviour
 
     public void MoveBack()
     {
+        StopAllCoroutines();
         objToMove.transform.Lerp(origPos.position, duration, this);
         this.Log("moving");
     }

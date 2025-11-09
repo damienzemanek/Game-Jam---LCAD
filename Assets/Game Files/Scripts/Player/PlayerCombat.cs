@@ -30,6 +30,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] public UnityEvent onEnemyDefenceHook;
     [SerializeField] public UnityEvent onAttackHook;
     [SerializeField] public UnityEvent onDefencePhaseStart;
+    [SerializeField] public UnityEvent onDefeatEnemy;
+
 
 
 
@@ -53,6 +55,7 @@ public class PlayerCombat : MonoBehaviour
         if(onAttackHook == null) onAttackHook = new();
         if(onEnemyDefenceHook == null) onEnemyDefenceHook = new();
         if(onDefencePhaseStart == null) onDefencePhaseStart = new();
+        if(onDefeatEnemy == null) onDefeatEnemy = new();
         combatDisplays.SetAllActive(false);
     }
 
@@ -104,6 +107,7 @@ public class PlayerCombat : MonoBehaviour
     public void KillEnemy()
     {
         world.currentEncounter.EnsureKillEnemy();
+        onDefeatEnemy?.Invoke();
         ExitCombat();
     }
 
