@@ -7,17 +7,20 @@ using UnityEngine.UI;
 public class HitAvaliable : MonoBehaviour
 {
     [SerializeField] float timeToFade = 0.5f;
+    [SerializeField] public bool alreadyHit = false;
     [SerializeField] Image img;
     [SerializeField] Sprite changeToCut;
     [SerializeField] UnityEvent cutHook;
 
     private void Awake()
     {
+        alreadyHit = false;
         if (cutHook == null) cutHook = new();
     }
 
     public void Hit()
     {
+        alreadyHit = true;
         cutHook?.Invoke();
         img.sprite = changeToCut;
         StartCoroutine(C_Hit());

@@ -191,6 +191,8 @@ public class PlayerCombat : MonoBehaviour
         GameObject hit = results.FirstOrDefault(r => r.gameObject.tag == "Defence").gameObject;
         if (hit == null) { this.Log("no hit"); return; }
 
+        if (hit.gameObject.TryGet<HitAvaliable>().alreadyHit) return;
+
         enemy.TryGet<Health>().TakeDamage(dmg);
         hit.gameObject.TryGet<HitAvaliable>().Hit();
         onEnemyDefenceHook?.Invoke();
