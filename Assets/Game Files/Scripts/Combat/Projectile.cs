@@ -52,6 +52,8 @@ public class Projectile : MonoBehaviour
             transform
             );
 
+        gameObject.TryGet<Collider>().enabled = false;
+
         this.DelayedCall(() => Destroy(gameObject), 2f);
     }
 }

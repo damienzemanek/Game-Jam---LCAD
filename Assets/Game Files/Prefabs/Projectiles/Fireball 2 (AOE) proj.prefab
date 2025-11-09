@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b1ccb8d72e6384886edd92588f0ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.15
   _dmg: 1
   projectileHealth: 1
   dirOfTravel: {x: 0, y: 0, z: -1}

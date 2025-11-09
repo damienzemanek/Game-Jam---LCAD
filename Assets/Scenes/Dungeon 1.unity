@@ -2482,6 +2482,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 132003063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &778151113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 778151114}
+  - component: {fileID: 778151116}
+  - component: {fileID: 778151115}
+  m_Layer: 0
+  m_Name: Bg aud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &778151114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778151113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963194228}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778151115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778151113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bb5099010ed0844a21766d2fd45310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStartHook:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 778151116}
+        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &778151116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778151113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a943e90569990bc489031b86be42f159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 1
+  cutShort: 0
+  multi: 0
+  enforcePlayOneShot: 0
+  shortTime: 0
+  source: {fileID: 0}
+  audio: {fileID: 8300000, guid: c7e481fd520cf6249adc5f625e88b0ca, type: 3}
+  audios: []
 --- !u!1 &784408321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3301,7 @@ GameObject:
   - component: {fileID: 963194238}
   - component: {fileID: 963194240}
   - component: {fileID: 963194239}
+  - component: {fileID: 963194241}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -3303,6 +3384,7 @@ Transform:
   - {fileID: 1327325428}
   - {fileID: 1337474871}
   - {fileID: 1874820768}
+  - {fileID: 778151114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -5, y: 0, z: 0}
 --- !u!114 &963194229
@@ -3407,6 +3489,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIJitter, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEnemyDefenceHook:
     m_PersistentCalls:
       m_Calls:
@@ -3434,9 +3528,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 963194241}
+        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 40adb010ee266c54784c420ec54c3176, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onAttackHook:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963194241}
+        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5bd3e453b4bbe9f4695a7b048fe87259, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDefencePhaseStart:
     m_PersistentCalls:
       m_Calls:
@@ -3696,6 +3814,26 @@ MonoBehaviour:
   localPostHook:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963194241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a943e90569990bc489031b86be42f159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loop: 0
+  cutShort: 0
+  multi: 0
+  enforcePlayOneShot: 0
+  shortTime: 0
+  source: {fileID: 0}
+  audio: {fileID: 0}
+  audios: []
 --- !u!1 &967335715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,6 +5585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e1b9afb9229249943a70a1d0d070c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finalLevel: 0
   linear: 1
   currentEnemy: 0
   enemyPrefabs:
@@ -5971,7 +6110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1922574146
 MonoBehaviour:
   m_ObjectHideFlags: 0

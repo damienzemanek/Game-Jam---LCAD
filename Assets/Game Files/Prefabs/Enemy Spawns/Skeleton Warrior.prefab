@@ -70,146 +70,146 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type:
-    rid: 1805014573513965616
+    rid: 1805014587205484547
   _currentCombo: 0
   references:
     version: 2
     RefIds:
-    - rid: 1805014573513965616
-      type: {class: SkeletonArcher, ns: , asm: Assembly-CSharp}
+    - rid: 1805014587205484547
+      type: {class: SkeletonWarrior, ns: , asm: Assembly-CSharp}
       data:
         combos:
-        - rid: 1805014573513965617
-        - rid: 1805014573513965618
-        - rid: 1805014573513965619
+        - rid: 1805014587205484548
+        - rid: 1805014587205484549
+        - rid: 1805014587205484550
         <health>k__BackingField: 5
-    - rid: 1805014573513965617
+    - rid: 1805014587205484548
       type: {class: Combos, ns: , asm: Assembly-CSharp}
       data:
         currentAttack: 0
         attacks:
-        - rid: 1805014573513965620
-        - rid: 1805014573513965621
-        - rid: 1805014573513965622
-        - rid: 1805014584844877841
-        - rid: 1805014584844877842
-        - rid: 1805014584844877843
-    - rid: 1805014573513965618
+        - rid: 1805014587205484551
+        - rid: 1805014587205484552
+        - rid: 1805014587205484553
+        - rid: 1805014587205484554
+        - rid: 1805014587205484555
+        - rid: 1805014587205484556
+    - rid: 1805014587205484549
       type: {class: Combos, ns: , asm: Assembly-CSharp}
       data:
         currentAttack: 0
         attacks:
-        - rid: 1805014573513965623
-        - rid: 1805014573513965624
-        - rid: 1805014573513965625
-        - rid: 1805014584844877844
-    - rid: 1805014573513965619
+        - rid: 1805014587205484557
+        - rid: 1805014587205484558
+        - rid: 1805014587205484559
+        - rid: 1805014587205484560
+    - rid: 1805014587205484550
       type: {class: Combos, ns: , asm: Assembly-CSharp}
       data:
         currentAttack: 0
         attacks:
-        - rid: 1805014573513965626
-        - rid: 1805014573513965627
-        - rid: 1805014573513965628
-        - rid: 1805014573513965629
-    - rid: 1805014573513965620
+        - rid: 1805014587205484561
+        - rid: 1805014587205484562
+        - rid: 1805014587205484563
+        - rid: 1805014587205484564
+    - rid: 1805014587205484551
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 0.5
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 3930280260571890038}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965621
+    - rid: 1805014587205484552
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 8625187888664000814}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965622
+    - rid: 1805014587205484553
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1.5
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 5005679426571587399}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965623
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 8428250621908619022}
-        rotation: {x: 0, y: 20, z: 0}
-    - rid: 1805014573513965624
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 1.8
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 3930280260571890038}
-        rotation: {x: 0, y: -20, z: 0}
-    - rid: 1805014573513965625
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 2.6
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 8625187888664000814}
-        rotation: {x: 3, y: -20, z: 0}
-    - rid: 1805014573513965626
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 8625187888664000814}
-        rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965627
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 8428250621908619022}
-        rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965628
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 2
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 2944028211250639276}
-        rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014573513965629
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 2
-        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
-        startPos: {fileID: 5005679426571587399}
-        rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014584844877841
+    - rid: 1805014587205484554
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 2
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 5380851124600563859}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014584844877842
+    - rid: 1805014587205484555
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 2.5
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 2944028211250639276}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014584844877843
+    - rid: 1805014587205484556
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 3
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 8428250621908619022}
         rotation: {x: 0, y: 0, z: 0}
-    - rid: 1805014584844877844
+    - rid: 1805014587205484557
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 1
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 8428250621908619022}
+        rotation: {x: 0, y: 20, z: 0}
+    - rid: 1805014587205484558
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 1.8
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 3930280260571890038}
+        rotation: {x: 0, y: -20, z: 0}
+    - rid: 1805014587205484559
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 2.6
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 8625187888664000814}
+        rotation: {x: 3, y: -20, z: 0}
+    - rid: 1805014587205484560
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 3.4
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 5380851124600563859}
         rotation: {x: 0, y: 20, z: 0}
+    - rid: 1805014587205484561
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 1
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 8625187888664000814}
+        rotation: {x: 0, y: 0, z: 0}
+    - rid: 1805014587205484562
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 1
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 8428250621908619022}
+        rotation: {x: 0, y: 0, z: 0}
+    - rid: 1805014587205484563
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 2
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 2944028211250639276}
+        rotation: {x: 0, y: 0, z: 0}
+    - rid: 1805014587205484564
+      type: {class: Directional, ns: , asm: Assembly-CSharp}
+      data:
+        _chargeUpTime: 2
+        projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
+        startPos: {fileID: 5005679426571587399}
+        rotation: {x: 0, y: 0, z: 0}
 --- !u!114 &3070186455941720216
 MonoBehaviour:
   m_ObjectHideFlags: 0

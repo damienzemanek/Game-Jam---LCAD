@@ -47,9 +47,12 @@ public class Encounter : RuntimeInjectableMonoBehaviour
         if (!spawnPoint) this.Error("Spawn point not set");
         this.Log("Spawning enemy");
 
-        GameObject prefab = enemies.completeItemPrefab;
-        if (!prefab) this.Error("Did not get a prefab");
-        Instantiate(original: prefab, completeItemSpawnPoint);
+        if (!enemies.finalLevel)
+        {
+            GameObject prefab = enemies.completeItemPrefab;
+            if (!prefab) this.Error("Did not get a prefab");
+            Instantiate(original: prefab, completeItemSpawnPoint);
+        }
     }
 
     public void EnsureKillEnemy()

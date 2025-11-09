@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class EnemyDb : MonoBehaviour, IDependencyProvider
 {
+    [SerializeField] public bool finalLevel = false;
     [Provide] EnemyDb Provide() => this;
 
     [SerializeField] bool linear;
