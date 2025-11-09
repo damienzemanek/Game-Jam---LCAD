@@ -1036,6 +1036,9 @@ MonoBehaviour:
   panel: {fileID: 698084795}
   incrementDelay: 0.05
   fadeStep: 0.015
+  localPostHook:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2105909571
 MonoBehaviour:
   m_ObjectHideFlags: 0
