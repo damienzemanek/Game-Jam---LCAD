@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Extensions;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using UnityEngine;
+using System.Linq;
 
 public class Projectile : MonoBehaviour
 {
@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
     void ProjDie()
     {
         speed = 0;
-        transform.Children().ForEach(c => c.SetActive(false));
+        transform.Children().ToList().ForEach(c => c.SetActive(false));
         Instantiate(combat.destroyProjEffect,
             transform.position,
             Quaternion.identity,

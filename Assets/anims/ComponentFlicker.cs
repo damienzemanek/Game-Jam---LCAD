@@ -1,11 +1,9 @@
 using System.Collections;
-using System.ComponentModel;
 using Extensions;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 using System.Linq;
-using Sirenix.Utilities;
+using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public class ComponentFlicker : MonoBehaviour
 {
@@ -69,7 +67,7 @@ public class ComponentFlicker : MonoBehaviour
     {
         StopAllCoroutines();
         if (componentFlicker) light.enabled = false;
-        if (childrenFlicker) children.ForEach(c => c.SetActive(leaveOn));
+        if (childrenFlicker) children.ToList().ForEach(c => c.SetActive(leaveOn));
         flickering = false;
     }
 
@@ -110,16 +108,16 @@ public class ComponentFlicker : MonoBehaviour
             switch (flickerPattern)
             {
                 case FlickerPattern.FastConsistentCreepy:
-                    children.ForEach(c => c.SetActive(!c.activeSelf));
+                    children.ToList().ForEach(c => c.SetActive(!c.activeSelf));
                     yield return new WaitForSeconds(flickerDelay.Rand());
                     break;
 
                 case FlickerPattern.MostlyOnSporaticOff:
                     if (Random.value < 0.2f)
                     {
-                        children.ForEach(c => c.SetActive(false));
+                        children.ToList().ForEach(c => c.SetActive(false));
                         yield return new WaitForSeconds(flickerDelay.Rand());
-                        children.ForEach(c => c.SetActive(true));
+                        children.ToList().ForEach(c => c.SetActive(true));
                     }
                     yield return new WaitForSeconds(flickerDelay.Rand() * 5f);
                     break;
