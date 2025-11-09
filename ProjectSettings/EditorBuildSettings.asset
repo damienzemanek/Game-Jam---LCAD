@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Select.unity
     guid: fa210d96fd4fad04f88b3ee2ab287af0
   - enabled: 1
-    path: Assets/Scenes/Dungeon 1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Progress.unity
     guid: d3f7896561c8cfc4c80215b261d01035
   - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 3431ba150eb463f408d0bdb623501618
+  - enabled: 1
+    path: Assets/Scenes/Dungeon 1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 77551a1cf793ace4ab632029c4e56119, type: 3}
