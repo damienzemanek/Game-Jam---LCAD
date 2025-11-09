@@ -27,6 +27,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Instance = this;
         if(onTakeDmgHook == null) onTakeDmgHook = new();
+        combatDisplay.SetActive(false);
     }
 
     private void OnEnable()
@@ -53,6 +54,8 @@ public class PlayerCombat : MonoBehaviour
         if (inCombat) return;
         inCombat = true;
         inDefence = false;
+        combatDisplay.SetActive(true);
+
 
         StartCoroutine(C_CombatCycle());
     }
@@ -60,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
     public void ExitCombat()
     {
         inCombat = false;
+        combatDisplay.SetActive(false);
     }
 
     public IEnumerator C_CombatCycle()
@@ -68,6 +72,7 @@ public class PlayerCombat : MonoBehaviour
 
         while (inCombat)
         {
+            comboing = true;
             enemy.StartCombo(ChangeToDefencePhase, () => comboing = false);
             while (comboing) yield return null;
             yield return new WaitForSeconds(0.25f);

@@ -25,4 +25,23 @@ public static class TransformUtility
         myTransform.position = end;
         endHook?.Invoke();
     }
+
+    public static void Lerp(this Transform myTransform, Vector3 to, float duration, MonoBehaviour mono, Action endHook = null)
+    => mono.StartCoroutine(C_Lerp(myTransform, to, duration, endHook));
+
+    public static IEnumerator C_Lerp(this Transform myTransform, Vector3 to, float duration, Action endHook = null)
+    {
+        Vector3 start = myTransform.position;
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            myTransform.position = Vector3.Slerp(start, to, t);
+            yield return null;
+        }
+
+        myTransform.position = to;
+        endHook?.Invoke();
+    }
 }
