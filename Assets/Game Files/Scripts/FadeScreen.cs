@@ -64,7 +64,7 @@ public class FadeScreen : MonoBehaviour
         float increment = 0;
         while (increment < 0.95f)
         {
-            increment += 0.02f;
+            increment += fadeStep;
             yield return new WaitForSeconds(incrementDelay);
             fade.a = increment;
             panel.color = fade;
@@ -83,7 +83,7 @@ public class FadeScreen : MonoBehaviour
         float increment = 1;
         while (increment > 0.05f)
         {
-            increment -= 0.02f;
+            increment -= fadeStep;
             yield return new WaitForSeconds(incrementDelay);
             fade.a = increment;
             panel.color = fade;
