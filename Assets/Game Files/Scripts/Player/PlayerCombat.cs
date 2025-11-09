@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DependencyInjection;
 using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [DefaultExecutionOrder(500)]
 public class PlayerCombat : MonoBehaviour
@@ -12,6 +15,7 @@ public class PlayerCombat : MonoBehaviour
     public static PlayerCombat Instance;
 
     [Inject] RepeatWorld world;
+    [Inject] HitArea hitArea;
     [SerializeField] bool inCombat;
     [SerializeField] bool inDefence;
 
@@ -22,6 +26,11 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] public UnityEvent<float> onTakeDmgHook;
     [SerializeField] public GameObject destroyProjEffect;
     [ShowInInspector, ReadOnly] bool comboing = false;
+    [ShowInInspector, ReadOnly] bool defending = false;
+    [SerializeField] float delayBetweenPhases = 3f;
+
+    [SerializeField] GraphicRaycaster rayster;
+    [SerializeField] EventSystem ev;
 
     private void Awake()
     {
@@ -35,6 +44,7 @@ public class PlayerCombat : MonoBehaviour
         if (!world) this.Error("world null");
         if (world.startCombatHook == null) this.Error("combat hook null");
         if (world.startCombatHook.get == null) this.Error("get null");
+        if (rayster == null) this.Error("Graphics raycster not set");
 
         world.startCombatHook?.get?.AddListener(EnterCombat);
     }
@@ -46,7 +56,10 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        PlayerAttack();
+        if (inCombat)
+            PlayerAttack();
+        else if (inDefence)
+            EnemyDefence();
     }
 
     public void EnterCombat()
@@ -54,6 +67,7 @@ public class PlayerCombat : MonoBehaviour
         if (inCombat) return;
         inCombat = true;
         inDefence = false;
+        defending = false;
         combatDisplay.SetActive(true);
 
 
@@ -73,9 +87,11 @@ public class PlayerCombat : MonoBehaviour
         while (inCombat)
         {
             comboing = true;
-            enemy.StartCombo(ChangeToDefencePhase, () => comboing = false);
+            enemy.StartCombo(
+                () => this.DelayedCall(ChangeToDefencePhase, delayBetweenPhases), 
+                () => comboing = false
+                );
             while (comboing) yield return null;
-            yield return new WaitForSeconds(0.25f);
         }
     }
 
@@ -85,9 +101,29 @@ public class PlayerCombat : MonoBehaviour
         comboing = false;
         inDefence = true;
         StopCoroutine(C_CombatCycle());
+        StartCoroutine(C_DefenceCycle());
 
     }
 
+    public IEnumerator C_DefenceCycle()
+    {
+        yield return new WaitForSeconds(1);
+
+        while (inDefence)
+        {
+            defending = true;
+            hitArea.GenerateHitAreas(hitArea.TryGet<RectTransform>(), StopEnemyDefending);
+            while (defending) yield return null;
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    void StopEnemyDefending()
+    {
+        inDefence = false;
+        defending = false;
+        StopCoroutine(C_DefenceCycle());
+    }
 
     [Button]
     public void KillEnemy()
@@ -120,5 +156,22 @@ public class PlayerCombat : MonoBehaviour
             if (hit.transform.tag != "Projectile") return;
             hit.transform.TryGet<Projectile>().ClickedOn();
         }
+    }
+
+    void EnemyDefence()
+    {
+        if (!Input.GetKeyDown(KeyCode.Mouse0)) return;
+
+        PointerEventData pd = new PointerEventData(ev);
+        pd.position = Input.mousePosition;
+        var results = new List<RaycastResult>();
+
+        rayster.Raycast(pd, results);
+
+        GameObject hit = results.FirstOrDefault(r => r.gameObject.tag == "Defence").gameObject;
+        if (hit == null) { this.Log("no hit"); return; }
+
+        Destroy(hit.gameObject);
+        
     }
 }
