@@ -4,6 +4,7 @@ using Extensions;
 using UnityEngine;
 using UnityEngine.Events;
 
+[DefaultExecutionOrder(300)]
 public class PlayerHealth : Health
 {
     PlayerCombat playerCombat;

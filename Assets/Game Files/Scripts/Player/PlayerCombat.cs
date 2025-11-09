@@ -11,7 +11,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[DefaultExecutionOrder(500)]
+[DefaultExecutionOrder(200)]
 public class PlayerCombat : MonoBehaviour
 {
     public static PlayerCombat Instance;
@@ -29,6 +29,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] public UnityEvent<float> onTakeDmgHook;
     [SerializeField] public UnityEvent onEnemyDefenceHook;
     [SerializeField] public UnityEvent onAttackHook;
+    [SerializeField] public UnityEvent onDefencePhaseStart;
+
 
 
     [SerializeField] public GameObject destroyProjEffect;
@@ -50,6 +52,7 @@ public class PlayerCombat : MonoBehaviour
         if(onTakeDmgHook == null) onTakeDmgHook = new();
         if(onAttackHook == null) onAttackHook = new();
         if(onEnemyDefenceHook == null) onEnemyDefenceHook = new();
+        if(onDefencePhaseStart == null) onDefencePhaseStart = new();
         combatDisplays.SetAllActive(false);
     }
 
@@ -195,6 +198,7 @@ public class PlayerCombat : MonoBehaviour
     void ChangeToDefencePhase()
     {
         StopCoroutine(C_EnemeyAttackCycle());
+        onDefencePhaseStart?.Invoke();
         StartCoroutine(C_DefenceCycle());
     }
 
