@@ -68,6 +68,8 @@ public class Enemy : MonoBehaviour
     [Serializable]
 public abstract class EnemyType
 {
+    public abstract string name { get; }
+
     protected MonoBehaviour host;
     public EnemyType() { }
 
@@ -80,7 +82,7 @@ public abstract class EnemyType
 [Serializable]
 public class Dragon : EnemyType
 {
-    public string name { get => "DRAGON"; }
+    public override string name { get => "DRAGON"; }
 
     public Dragon() : base() { }
 

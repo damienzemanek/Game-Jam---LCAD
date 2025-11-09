@@ -20,6 +20,7 @@ public class Combos
 
     IEnumerator C_AttackLinear(Action postHook = null)
     {
+        currentAttack = 0;
         float last = 0f;
 
         while(currentAttack < attacks.Count)

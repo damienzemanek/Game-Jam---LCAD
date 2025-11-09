@@ -62,6 +62,17 @@ namespace Extensions
             return list;
         }
 
+        public static List<GameObject> SetAllActive(this List<GameObject> list, bool val)
+        {
+            for(int i = 0; i < list.Count; i++) list[i].SetActive(val);
+            return list;
+        }
+
+        public static GameObject[] SetAllActive(this GameObject[] list, bool val)
+        {
+            for (int i = 0; i < list.Length; i++) list[i].SetActive(val);
+            return list;
+        }
 
 
         #region Methods

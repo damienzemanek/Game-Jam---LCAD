@@ -4,6 +4,7 @@ using System.Linq;
 using DependencyInjection;
 using Extensions;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,14 +22,16 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] bool inDefence;
 
 
+
     [TitleGroup("Combat")]
-    [SerializeField] GameObject combatDisplay;
+    [SerializeField] GameObject[] combatDisplays;
     [SerializeField] Enemy enemy { get => world.currentEncounter.currentEnemy; }
     [SerializeField] public UnityEvent<float> onTakeDmgHook;
     [SerializeField] public GameObject destroyProjEffect;
     [ShowInInspector, ReadOnly] bool comboing = false;
     [ShowInInspector, ReadOnly] bool defending = false;
     [SerializeField] float delayBetweenPhases = 3f;
+    [SerializeField] float dmg = 1f;
 
     [SerializeField] TextMeshProUGUI enemyNameText;
     [SerializeField] GraphicRaycaster rayster;
@@ -38,7 +41,7 @@ public class PlayerCombat : MonoBehaviour
     {
         Instance = this;
         if(onTakeDmgHook == null) onTakeDmgHook = new();
-        combatDisplay.SetActive(false);
+        combatDisplays.SetAllActive(false);
     }
 
     private void OnEnable()
@@ -69,19 +72,15 @@ public class PlayerCombat : MonoBehaviour
     public void EnterCombat()
     {
         if (inCombat) return;
-        inCombat = true;
-        inDefence = false;
-        defending = false;
-        combatDisplay.SetActive(true);
-
-
-        StartCoroutine(C_EnemeyAttackCycle());
+        combatDisplays.SetAllActive(true);
+        enemyNameText.text = enemy.type.name;
+        ChangeToAttackPhase();
     }
 
     public void ExitCombat()
     {
         inCombat = false;
-        combatDisplay.SetActive(false);
+        combatDisplays.SetAllActive(false);
     }
 
     [Button]
@@ -105,7 +104,12 @@ public class PlayerCombat : MonoBehaviour
 
 
     #region Enemy Attack
-
+    void ChangeToAttackPhase()
+    {
+        this.Log("Changing to attack phase");
+        StopCoroutine(C_DefenceCycle());
+        StartCoroutine(C_EnemeyAttackCycle());
+    }
 
     void EnemyAttack()
     {
@@ -124,10 +128,20 @@ public class PlayerCombat : MonoBehaviour
 
     public IEnumerator C_EnemeyAttackCycle()
     {
+        this.Log("C_AttackCycle Going");
+
+        inCombat = true;
+        inDefence = false;
+        defending = false;
+        enemy.currentCombo = 0;
+
+
         yield return new WaitForSeconds(1);
 
         while (inCombat)
         {
+            this.Log($"ATTACKING, COMBO: {enemy.currentCombo}");
+
             comboing = true;
             enemy.StartCombo(
                 () => this.DelayedCall(ChangeToDefencePhase, delayBetweenPhases), 
@@ -158,38 +172,38 @@ public class PlayerCombat : MonoBehaviour
         if (hit == null) { this.Log("no hit"); return; }
 
         Destroy(hit.gameObject);
-        
+        enemy.TryGet<Health>().TakeDamage(dmg);
     }
 
     void ChangeToDefencePhase()
     {
-        inCombat = false;
-        comboing = false;
-        inDefence = true;
         StopCoroutine(C_EnemeyAttackCycle());
         StartCoroutine(C_DefenceCycle());
-
     }
 
     public IEnumerator C_DefenceCycle()
     {
+        inCombat = false;
+        comboing = false;
+        inDefence = true;
+
         yield return new WaitForSeconds(1);
 
         while (inDefence)
         {
+            this.Log("in defence");
             defending = true;
-            hitArea.GenerateHitAreas(hitArea.TryGet<RectTransform>(), StopEnemyDefending);
+            hitArea.GenerateHitAreas(hitArea.TryGet<RectTransform>(), 
+                () => {
+                    ChangeToAttackPhase();
+                    defending = false;
+                });
+
             while (defending) yield return null;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(1.25f);
         }
     }
 
-    void StopEnemyDefending()
-    {
-        inDefence = false;
-        defending = false;
-        StopCoroutine(C_DefenceCycle());
-    }
 
 
     #endregion
