@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 6774037631441831702}
   - component: {fileID: 6766791494422574065}
   - component: {fileID: 5856394744264637044}
-  - component: {fileID: 5973429648034168203}
   m_Layer: 0
   m_Name: obj
   m_TagString: Untagged
@@ -274,22 +273,6 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!111 &5973429648034168203
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7659638153508919953}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: fec880310d045284683141b8dc7a6fd9, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: fec880310d045284683141b8dc7a6fd9, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &8069312226071178352
 GameObject:
   m_ObjectHideFlags: 0
