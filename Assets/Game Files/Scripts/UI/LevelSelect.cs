@@ -5,6 +5,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 using Sirenix.Utilities;
+using UnityEngine.Events;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] int currentPosIndex = 0;
     [SerializeField] Transform[] positions;
     [SerializeField] GameObject[] startButtons;
+    [SerializeField] UnityEvent selectNextHook;
+
+    private void Awake()
+    {
+        if (selectNextHook == null) selectNextHook = new UnityEvent();
+    }
 
     private void Start()
     {
@@ -26,12 +33,14 @@ public class LevelSelect : MonoBehaviour
         if (currentPosIndex > 0)
             currentPosIndex--;
 
+        selectNextHook?.Invoke();
         SetMoving(true);
         DisableAllStartButtons();
 
-        cam.transform.Slerp(
+        cam.transform.Lerp(
             positions[currentPosIndex].position,
-            transitionTime, this,
+            transitionTime,
+            this,
             () =>
                 {
                     SetMoving(false);
@@ -46,12 +55,14 @@ public class LevelSelect : MonoBehaviour
         if (currentPosIndex < positions.Length - 1)
             currentPosIndex++;
 
+        selectNextHook?.Invoke();
         SetMoving(true);
         DisableAllStartButtons();
 
-        cam.transform.Slerp(
+        cam.transform.Lerp(
             positions[currentPosIndex].position,
-            transitionTime, this, 
+            transitionTime,
+            this, 
             () =>
                 {
                     SetMoving(false);
