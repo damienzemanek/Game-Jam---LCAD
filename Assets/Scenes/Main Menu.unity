@@ -1199,8 +1199,6 @@ MonoBehaviour:
   - rid: 1805014547506921500
   - rid: 1805014547506921501
   - rid: 1805014547506921535
-  - rid: 1805014547506921536
-  - rid: 1805014547506921537
   references:
     version: 2
     RefIds:
@@ -1219,16 +1217,6 @@ MonoBehaviour:
       data:
         _have: 0
         _type: 2
-    - rid: 1805014547506921536
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 3
-    - rid: 1805014547506921537
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 4
 --- !u!4 &1315787826
 Transform:
   m_ObjectHideFlags: 0

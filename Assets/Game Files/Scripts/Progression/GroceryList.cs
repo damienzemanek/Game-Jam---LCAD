@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DependencyInjection;
 using UnityEngine;
 
@@ -17,6 +18,10 @@ public class GroceryList : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool hasAllItems()
+    {
+        return items != null && items.Count > 0 && items.All(i => i.have);
+    }
 
 }
 

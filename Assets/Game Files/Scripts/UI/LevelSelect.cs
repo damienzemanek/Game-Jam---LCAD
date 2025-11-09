@@ -16,6 +16,8 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] GameObject[] startButtons;
     [SerializeField] UnityEvent selectNextHook;
 
+    [SerializeField] GameObject lockObj;
+
     private void Awake()
     {
         if (selectNextHook == null) selectNextHook = new UnityEvent();
@@ -32,6 +34,7 @@ public class LevelSelect : MonoBehaviour
         if (currentPosIndex > 0)
             currentPosIndex--;
 
+        lockObj.SetActive(false);
         selectNextHook?.Invoke();
         SetMoving(true);
         DisableAllStartButtons();
@@ -54,6 +57,7 @@ public class LevelSelect : MonoBehaviour
         if (currentPosIndex < positions.Length - 1)
             currentPosIndex++;
 
+        lockObj.SetActive(false);
         selectNextHook?.Invoke();
         SetMoving(true);
         DisableAllStartButtons();
@@ -74,6 +78,25 @@ public class LevelSelect : MonoBehaviour
     {
         DisableAllStartButtons();
         startButtons[index].SetActive(true);
+
+        bool isLast = index == positions.Length - 1;
+
+        if (isLast)
+        {
+            bool hasAll = GroceryList.Instance.hasAllItems();
+
+            lockObj.SetActive(!hasAll);
+
+            if (hasAll)
+                CheckProgress.Instance.Unlock();
+            else
+                CheckProgress.Instance.Lock();
+        }
+        else
+        {
+            lockObj.SetActive(false);
+            CheckProgress.Instance.Unlock(); // Ensures button isn't stuck locked on earlier levels
+        }
     }
 
     public void DisableAllStartButtons() => startButtons.ToList().ForEach(b => b.SetActive(false));
