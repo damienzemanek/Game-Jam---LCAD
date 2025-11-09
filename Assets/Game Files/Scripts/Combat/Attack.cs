@@ -18,18 +18,23 @@ public abstract class Attack
 public class Directional : Attack
 {
     [SerializeField] Transform startPos;
-    [SerializeField] Vector3 direction;
-    [SerializeField] float speed;
+    [SerializeField] Vector3 rotation;
+    [SerializeField] float speed = 0.1f;
     public override void Execute()
     {
         if(projectilePrefab == null) this.Error("Directionals need projectiles");
 
+        //Quaternion baseRot = startPos.rotation;
+        //Vector3 newRotValues = baseRot.eulerAngles;
+        //newRotValues += rotation;
+
         GameObject projectile = GameObject.Instantiate(
             projectilePrefab,
             startPos.position,
-            Quaternion.identity,
+            Quaternion.Euler(rotation),
             null
             );
+
 
         projectile.TryGet<Projectile>().Init(speed);
 

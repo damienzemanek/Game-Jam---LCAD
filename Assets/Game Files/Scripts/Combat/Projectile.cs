@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Extensions;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     PlayerCombat combat;
     [SerializeField, ReadOnly] float speed;
+    [SerializeField] float _dmg = 1f;
+    [SerializeField] int projectileHealth = 1;
+
+    public float dmg { get => _dmg; set => _dmg = value; }
+    
 
     public void Init(float _speed)
     {
@@ -15,11 +22,34 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
+        if (dmg <= 0) this.Error("projectile damage is 0, set to a number higher than 0");
         combat = PlayerCombat.Instance;
     }
 
     private void FixedUpdate()
     {
         transform.Translate(-transform.forward * speed);
+    }
+
+    public void ClickedOn()
+    {
+        projectileHealth--;
+
+        this.Log("Projectile clicked on");
+
+        if (projectileHealth <= 0) ProjDie();
+    }
+
+    void ProjDie()
+    {
+        speed = 0;
+        transform.Children().ForEach(c => c.SetActive(false));
+        Instantiate(combat.destroyProjEffect,
+            transform.position,
+            Quaternion.identity,
+            transform
+            );
+
+        this.DelayedCall(() => Destroy(gameObject), 2f);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,22 +9,31 @@ using UnityEngine;
 public class Combos 
 {
     MonoBehaviour host;
-    [ShowInInspector] int maxAttacks { get => attacks == null ? 0 : attacks.Count; }
     [SerializeField, ReadOnly] int currentAttack;
 
     [SerializeReference] public List<Attack> attacks;
 
     public void Init(MonoBehaviour _host) => host = _host;
 
-    public void AttackLinear() => host.StartCoroutine(C_AttackLinear());
+    [Button]
+    public void AttackLinear(Action postHook = null) => host.StartCoroutine(C_AttackLinear(postHook));
 
-    IEnumerator C_AttackLinear()
+    IEnumerator C_AttackLinear(Action postHook = null)
     {
-        while(currentAttack < maxAttacks)
+        float last = 0f;
+
+        while(currentAttack < attacks.Count)
         {
-            yield return new WaitForSeconds(attacks[currentAttack].chargeUpTime);
+            float wait = attacks[currentAttack].chargeUpTime - last;
+
+            if(wait > 0) yield return new WaitForSeconds(wait);
+            this.Log($"attacking w/ {currentAttack}");
             attacks[currentAttack].Execute();
+
+            last = attacks[currentAttack].chargeUpTime;
             currentAttack++;
         }
+
+        postHook?.Invoke();
     }
 }

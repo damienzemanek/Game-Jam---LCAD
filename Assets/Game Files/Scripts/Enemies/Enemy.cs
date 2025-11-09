@@ -4,11 +4,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Extensions;
 using Sirenix.OdinInspector;
+using Unity.Collections;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
+using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeReference] EnemyType _type;
+    [ShowInInspector] int maxCombosThisSpawn { get => type.combos.Count; }
+    [SerializeField, ReadOnly] int _currentCombo;
+
+    public int currentCombo { get => _currentCombo; set => _currentCombo = value; }
+
 
     public EnemyType type { get => _type; set => _type = value; } 
 
@@ -22,6 +30,7 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         AssignSelfAsHostToAttacks();
+        currentCombo = 0;
     }
 
     public void AssignSelfAsHostToAttacks()
@@ -38,11 +47,25 @@ public class Enemy : MonoBehaviour
         });
     }
 
+    public void StartCombo(Action changeToDefencePhase, Action postHook = null)
+    {
+        if (currentCombo > maxCombosThisSpawn)
+        {
+            changeToDefencePhase?.Invoke();
+            return;
+        }
+
+        type.StartCombo(() => postHook?.Invoke());
+        currentCombo++;
+
+    }
+
+
 
 }
 
 
-[Serializable]
+    [Serializable]
 public abstract class EnemyType
 {
     protected MonoBehaviour host;
@@ -50,7 +73,7 @@ public abstract class EnemyType
 
     [SerializeReference] public List<Combos> combos;
     [field: SerializeField] float health { get; set; }
-    public abstract void StartCombo();
+    public abstract void StartCombo(Action postHook = null);
 
 }
 
@@ -59,9 +82,9 @@ public class Dragon : EnemyType
 {
     public Dragon() : base() { }
 
-    public override void StartCombo()
+    public override void StartCombo(Action postHook = null)
     {
-        combos.Rand().AttackLinear();
+        combos.Rand().AttackLinear(postHook);
     }
 
 }
