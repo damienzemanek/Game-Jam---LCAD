@@ -3079,6 +3079,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDefeatEnemy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 963194238}
+        m_TargetAssemblyTypeName: MoveForwardAndBack, Assembly-CSharp
+        m_MethodName: MoveBack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   destroyProjEffect: {fileID: 6533755092846129089, guid: be74be0a54d86f946930031e3d5cfc7a, type: 3}
   delayBetweenPhases: 1.4
   dmg: 1
