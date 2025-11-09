@@ -441,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -663,6 +663,7 @@ GameObject:
   - component: {fileID: 1134418534}
   - component: {fileID: 1134418533}
   - component: {fileID: 1134418532}
+  - component: {fileID: 1134418535}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -783,6 +784,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134418530}
   m_CullTransparentMesh: 1
+--- !u!114 &1134418535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134418530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d76aeaa1118db4c8d86dfadcec2cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  initialSize: {x: 0, y: 0, z: 0}
+  sizeJitterIncrease: {x: 1, y: 1, z: 1}
+  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  rotTo: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
 --- !u!1 &1315787824
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +938,7 @@ GameObject:
   - component: {fileID: 2105909567}
   - component: {fileID: 2105909571}
   - component: {fileID: 2105909570}
+  - component: {fileID: 2105909572}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1015,8 +1034,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFading: 0
   panel: {fileID: 698084795}
-  incrementDelay: 0.03
-  fadeStep: 0.02
+  incrementDelay: 0.05
+  fadeStep: 0.015
 --- !u!114 &2105909571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1080,33 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2105909572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105909566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bb5099010ed0844a21766d2fd45310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStartHook:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2105909570}
+        m_TargetAssemblyTypeName: FadeScreen, Assembly-CSharp
+        m_MethodName: FadeToVisible
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class FadeScreen : MonoBehaviour
@@ -10,15 +11,24 @@ public class FadeScreen : MonoBehaviour
     public float incrementDelay = 0.03f;
     public float fadeStep = 0.02f;
 
-    public void FadeToBlack()
+    [SerializeField] UnityEvent localPostHook;
+
+    private void Awake()
     {
-        StartCoroutine(C_FadeToBlack());
+        if(localPostHook == null) localPostHook = new UnityEvent();
     }
 
+    public void FadeToBlack()
+        => StartCoroutine(C_FadeToBlack(() => localPostHook?.Invoke()));
+
     public void FadeToVisible()
-    {
-        StartCoroutine(C_FadeToVisible());
-    }
+        => StartCoroutine(routine: C_FadeToVisible(() => localPostHook?.Invoke()));
+
+    public void FadeToBlack(Action postHook = null)
+        => StartCoroutine(C_FadeToBlack(postHook));
+
+    public void FadeToVisible(Action postHook = null)
+        => StartCoroutine(routine: C_FadeToVisible(postHook));
 
     public void FadeInAndOut()
     {
