@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ScaleChange : MonoBehaviour
 {
+    [SerializeField] float timeToShrink = 3f;
     [SerializeField] Vector3 finalScale = Vector3.zero;
 
     private void OnEnable()
     {
         Transform orig = transform;
-        transform.LerpScale(finalScale, 4f, this, ScaledToNothing);
+        transform.LerpScale(finalScale, timeToShrink, this, ScaledToNothing);
 
 
     }

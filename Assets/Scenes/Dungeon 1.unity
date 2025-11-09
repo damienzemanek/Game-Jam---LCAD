@@ -293,9 +293,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 963194241}
+        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ef01e3b115280d243b10681a4e57a82f, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 507025938}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadSceneAfterDelay
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2325,6 +2337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db81e51b86bf0b47bf3130384b2332b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 1
 --- !u!4 &507025939
 Transform:
   m_ObjectHideFlags: 0
@@ -3424,7 +3437,7 @@ MonoBehaviour:
         m_MethodName: Play
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5d6563f49b6f5e14fa68855535603201, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 89d8f3fce4b069a42b99697d28c13d44, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5532,8 +5545,7 @@ MonoBehaviour:
   currentEnemy: 0
   enemyPrefabs:
   - {fileID: 260653483891448513, guid: 9b72cf48580456642ba6be9fe301e970, type: 3}
-  - {fileID: 6602060678874453838, guid: 152f2cb3341eb0445880a6616d04791d, type: 3}
-  - {fileID: 260653483891448513, guid: 9b72cf48580456642ba6be9fe301e970, type: 3}
+  - {fileID: 260653483891448513, guid: 645ea4b7e76abcd49aa52c761f224f28, type: 3}
   completeItemPrefab: {fileID: 5907734931599413591, guid: 0e07a0cd96509c04ba06123b50835d26, type: 3}
 --- !u!4 &1743775316
 Transform:

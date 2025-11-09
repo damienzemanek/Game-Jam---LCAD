@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7501372087078777099
 Transform:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7486219649266120622
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4812918453099280112
 Transform:
   m_ObjectHideFlags: 0
@@ -298,7 +298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1637505380259114675
 Transform:
   m_ObjectHideFlags: 0
@@ -381,7 +381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1526155514079917351
 Transform:
   m_ObjectHideFlags: 0
@@ -593,28 +593,28 @@ MonoBehaviour:
     - rid: 1805014584844877828
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
-        _chargeUpTime: 1
+        _chargeUpTime: 0.8
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 7952012316814712109}
         rotation: {x: -11, y: 8, z: 0}
     - rid: 1805014584844877829
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
-        _chargeUpTime: 2
+        _chargeUpTime: 1.6
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 7735754309340029577}
         rotation: {x: 3, y: 6, z: 0}
     - rid: 1805014584844877830
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
-        _chargeUpTime: 3
+        _chargeUpTime: 2.4
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 4765869719481359263}
         rotation: {x: -7, y: 4, z: 0}
     - rid: 1805014584844877831
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
-        _chargeUpTime: 3.5
+        _chargeUpTime: 3.2
         projectilePrefab: {fileID: 9179178493342575502, guid: fce0a45a2f8f4c64895707acf7c580a7, type: 3}
         startPos: {fileID: 3210827354857660979}
         rotation: {x: 0, y: 0, z: 0}
@@ -694,8 +694,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 0}
-  maxHp: 10
-  currentHp: 10
+  maxHp: 14
+  currentHp: 14
   onDeathHook:
     delayType: 0
     delay: 0
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1559075587114443201
 Transform:
   m_ObjectHideFlags: 0
