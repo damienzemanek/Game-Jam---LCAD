@@ -357,8 +357,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6266641086764050432}
-  - component: {fileID: 5775434602282063090}
   - component: {fileID: 6250389901634863799}
+  - component: {fileID: 5775434602282063090}
+  - component: {fileID: 4768933024551353774}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -383,6 +384,27 @@ Transform:
   - {fileID: 3668136723239919285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+--- !u!95 &6250389901634863799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602060678874453838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a7cee4293e30da4baa8336969e3627f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5775434602282063090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type:
     rid: 1805014547506921567
+  _currentCombo: 0
   references:
     version: 2
     RefIds:
@@ -471,27 +494,28 @@ MonoBehaviour:
         startPos: {fileID: 4708072649579727923}
         rotation: {x: 0, y: -9, z: 0}
         speed: 0.1
---- !u!95 &6250389901634863799
-Animator:
-  serializedVersion: 5
+--- !u!114 &4768933024551353774
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6602060678874453838}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a7cee4293e30da4baa8336969e3627f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd3d966c3c64f54b89a9a584d53caad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 0}
+  maxHp: 10
+  currentHp: 10
+  onDeathHook:
+    delayType: 0
+    delay: 0
+    random: {x: 0, y: 0}
+    get:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &7895969635459646666
 GameObject:
   m_ObjectHideFlags: 0

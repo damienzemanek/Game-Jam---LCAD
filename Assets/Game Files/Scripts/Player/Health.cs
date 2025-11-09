@@ -7,18 +7,21 @@ using UnityEngine.UI;
 
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] Slider slider;
+    [SerializeField] Slider _slider;
     [SerializeField] protected float maxHp;
     [SerializeField] protected float currentHp;
     [SerializeField] protected UnityEventPlus onDeathHook;
+
+    public Slider slider { get => _slider; protected set => _slider = value; }
 
     private void Awake()
     {
         if (onDeathHook == null) onDeathHook = new UnityEventPlus();
         maxHp = currentHp;
-        UpdateSliderUI();
-
+        AdditionalAwakeImplements();
     }
+
+    protected virtual void AdditionalAwakeImplements() { }
 
     private void OnEnable()
     {
@@ -41,6 +44,8 @@ public abstract class Health : MonoBehaviour
 
     public void UpdateSliderUI()
     {
+        if (slider == null) this.Error("Did not successfully grab slider");
+
         this.Log("Updating slider value");
         float sliderVal = currentHp / maxHp;
         slider.value = sliderVal;

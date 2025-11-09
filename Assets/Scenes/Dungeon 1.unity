@@ -2123,6 +2123,8 @@ MonoBehaviour:
       m_Calls: []
   destroyProjEffect: {fileID: 6533755092846129089, guid: be74be0a54d86f946930031e3d5cfc7a, type: 3}
   delayBetweenPhases: 3
+  dmg: 1
+  _enemyHealthSlider: {fileID: 882238438}
   enemyNameText: {fileID: 186318399}
   rayster: {fileID: 1337474872}
   ev: {fileID: 495201899}
@@ -2241,7 +2243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff24a66c9647d74881c791b8ab0ad25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1537038406}
+  _slider: {fileID: 1537038406}
   maxHp: 10
   currentHp: 10
   onDeathHook:

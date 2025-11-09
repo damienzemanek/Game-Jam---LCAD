@@ -33,9 +33,12 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] float delayBetweenPhases = 3f;
     [SerializeField] float dmg = 1f;
 
+    [SerializeField] Slider _enemyHealthSlider;
     [SerializeField] TextMeshProUGUI enemyNameText;
     [SerializeField] GraphicRaycaster rayster;
     [SerializeField] EventSystem ev;
+
+    public Slider enemyHealthSlider { get => _enemyHealthSlider; set => _enemyHealthSlider = value; }  
 
     private void Awake()
     {
@@ -80,7 +83,12 @@ public class PlayerCombat : MonoBehaviour
     public void ExitCombat()
     {
         inCombat = false;
+        inDefence = false;
+        comboing = false;
+        defending = false;
+        StopAllCoroutines();
         combatDisplays.SetAllActive(false);
+        hitArea.StopAllCoroutines();
     }
 
     [Button]
