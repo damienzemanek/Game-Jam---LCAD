@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
+using System.Linq;
 using Sirenix.OdinInspector;
 using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
-using Sirenix.Utilities;
 using UnityEngine.Events;
 
 public class LevelSelect : MonoBehaviour
@@ -77,7 +76,7 @@ public class LevelSelect : MonoBehaviour
         startButtons[index].SetActive(true);
     }
 
-    public void DisableAllStartButtons() => startButtons.ForEach(b => b.SetActive(false));
+    public void DisableAllStartButtons() => startButtons.ToList().ForEach(b => b.SetActive(false));
 
     void SetMoving(bool val) => moving = val;
 }
