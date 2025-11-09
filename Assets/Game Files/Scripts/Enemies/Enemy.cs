@@ -12,7 +12,7 @@ using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 public class Enemy : MonoBehaviour
 {
     [SerializeReference] EnemyType _type;
-    [ShowInInspector] int maxCombosThisSpawn { get => type.combos.Count; }
+    [ShowInInspector] int maxCombosThisSpawn { get => (type.combos == null) ? 0 : type.combos.Count; }
     [SerializeField, ReadOnly] int _currentCombo;
 
     public int currentCombo { get => _currentCombo; set => _currentCombo = value; }
@@ -96,11 +96,81 @@ public class Dragon : EnemyType
 }
 
 [Serializable]
+public class GreenDragon : EnemyType
+{
+    public override string name { get => "DRAGON"; }
+
+    public GreenDragon() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+}
+
+
+[Serializable]
 public class Knight : EnemyType
 {
-    public override string name { get => "Knight"; }
+    public override string name { get => "KNIGHT"; }
 
     public Knight() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+
+}
+
+[Serializable]
+public class SkeletonArcher : EnemyType
+{
+    public override string name { get => "SKELETON"; }
+
+    public SkeletonArcher() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+
+}
+
+[Serializable]
+public class SkeletonWarrior : EnemyType
+{
+    public override string name { get => "SKELETON"; }
+
+    public SkeletonWarrior() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+
+}
+
+[Serializable]
+public class KnightCaptain : EnemyType
+{
+    public override string name { get => "CAPTAIN"; }
+
+    public KnightCaptain() : base() { }
+
+    public override void StartCombo(Action postHook = null)
+    {
+        combos.Rand().AttackLinear(postHook);
+    }
+
+}
+
+[Serializable]
+public class CashRegisterEmployeeBoss : EnemyType
+{
+    public override string name { get => "EMPLOYEE"; }
+
+    public CashRegisterEmployeeBoss() : base() { }
 
     public override void StartCombo(Action postHook = null)
     {

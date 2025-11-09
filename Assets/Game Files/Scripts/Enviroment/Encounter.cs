@@ -32,7 +32,7 @@ public class Encounter : RuntimeInjectableMonoBehaviour
         if (!spawnPoint) this.Error("Spawn point not set");
         this.Log("Spawning enemy");
 
-        GameObject prefab = enemies.GetRandEnemyPrefab();
+        GameObject prefab = enemies.GetEnemyPrefab();
         if (!prefab) this.Error("Did not get a prefab");
 
         currentEnemy = Instantiate(prefab, spawnPoint).TryGet<Enemy>();

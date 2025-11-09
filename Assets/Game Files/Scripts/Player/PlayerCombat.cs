@@ -27,6 +27,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] GameObject[] combatDisplays;
     [SerializeField] Enemy enemy { get => world.currentEncounter.currentEnemy; }
     [SerializeField] public UnityEvent<float> onTakeDmgHook;
+    [SerializeField] public UnityEvent onEnemyDefenceHook;
+
     [SerializeField] public GameObject destroyProjEffect;
     [ShowInInspector, ReadOnly] bool comboing = false;
     [ShowInInspector, ReadOnly] bool defending = false;
@@ -181,6 +183,7 @@ public class PlayerCombat : MonoBehaviour
 
         Destroy(hit.gameObject);
         enemy.TryGet<Health>().TakeDamage(dmg);
+        onEnemyDefenceHook?.Invoke();
     }
 
     void ChangeToDefencePhase()
