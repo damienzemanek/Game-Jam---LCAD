@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb3ee6712659e0e45b8d507334933ead, type: 3}
-  m_Name: Dungeon 0
+  m_Name: BOSS
   m_EditorClassIdentifier: 
-  final: 0
+  final: 1
   linear: 1
   finalSceneIndex: 8
-  bgMusic: {fileID: 8300000, guid: c7e481fd520cf6249adc5f625e88b0ca, type: 3}
+  bgMusic: {fileID: 8300000, guid: 00b19ce403d9a814a8c5699651cd72aa, type: 3}
   enemyPrefabs:
-  - {fileID: 260653483891448513, guid: 9b72cf48580456642ba6be9fe301e970, type: 3}
-  - {fileID: 260653483891448513, guid: 645ea4b7e76abcd49aa52c761f224f28, type: 3}
-  completeItem: {fileID: 5907734931599413591, guid: 0e07a0cd96509c04ba06123b50835d26, type: 3}
-  giveType: 1
+  - {fileID: 260653483891448513, guid: 70289d6496fc89d469bf3aaf03f8f14c, type: 3}
+  completeItem: {fileID: 5907734931599413591, guid: f2f4e85797eccb64f877ad235d630646, type: 3}
+  giveType: 5

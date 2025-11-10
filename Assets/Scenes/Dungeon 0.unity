@@ -225,17 +225,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62330063}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 2.4318, y: 2.4318, z: 2.4318}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1337474871}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39, y: -247}
-  m_SizeDelta: {x: 143.779, y: 118.726}
+  m_AnchoredPosition: {x: 6, y: -313}
+  m_SizeDelta: {x: 628.988, y: 260.173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &62330065
 MonoBehaviour:
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 712d811d007f7c648a51f64793c0d23c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bcf92e8690c72843bdb1eb6714a0a1b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -381,7 +381,7 @@ MonoBehaviour:
   initialSize: {x: 0, y: 0, z: 0}
   sizeJitterIncrease: {x: 2.7, y: 2.7, z: 2.7}
   initialRot: {x: 0, y: 0, z: 0, w: 0}
-  rotTo: {x: 0, y: 0, z: 0.72537434, w: 0.6883546}
+  rotTo: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
 --- !u!1001 &81863111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5711,7 +5711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e1b9afb9229249943a70a1d0d070c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonData: {fileID: 11400000, guid: 8e77bd35a69838c4ba43740698ad273b, type: 2}
+  dungeonData: {fileID: 11400000, guid: 15202398a86e0344b8cefdcfd6d3f303, type: 2}
   currentEnemy: 0
   completeLevelButton: {fileID: 62330065}
   playerAudioplay: {fileID: 963194241}

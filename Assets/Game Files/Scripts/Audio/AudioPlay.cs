@@ -130,6 +130,8 @@ public class AudioPlay : MonoBehaviour
         source.Stop();
     }
 
+    public void SetLooping(bool val) => source.loop = val;
+
     #region Methods
         
     #endregion

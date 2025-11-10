@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class RepeatWorld : MonoBehaviour, IDependencyProvider
 {
     [Provide] RepeatWorld Provide() => this;
-    [SerializeField] int amountOfEncounters = 2;
+    [SerializeField] EnemyDb enemyDb;
     [SerializeField, ReadOnly] int encountersLeft = 2;
     [SerializeField] float encounterSectionObjsMoveAmount = 50f;
     [SerializeField] float moveTime = 3f;
@@ -27,12 +27,13 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
     {
         spawnedPickup = null;
         if (startCombatHook == null) startCombatHook = new UnityEventPlus();
+        if(enemyDb == null) enemyDb = FindObjectOfType<EnemyDb>();
     }
 
     void Start()
     {
         if (encounters == null || encounters.Count == 0) this.Error("No encounter objs set");
-        encountersLeft = amountOfEncounters;
+        encountersLeft = enemyDb.amountOfEncounters + 1;
         TransitionToNextEncounter();
     }
 

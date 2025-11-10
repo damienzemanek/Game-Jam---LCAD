@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,49 +19,52 @@ public class FadeScreen : MonoBehaviour
         if(localPostHook == null) localPostHook = new UnityEvent();
     }
 
-    public void FadeToBlack()
-        => StartCoroutine(C_FadeToBlack(() => localPostHook?.Invoke()));
+    public void FadeToFullyOpaque()
+        => StartCoroutine(C_FadeToFullyOpaque(() => localPostHook?.Invoke()));
 
-    public void FadeToVisible()
-        => StartCoroutine(routine: C_FadeToVisible(() => localPostHook?.Invoke()));
+    public void FadeToFullyTransparent()
+        => StartCoroutine(routine: C_FadeToFullyTransparent(() => localPostHook?.Invoke()));
 
-    public void FadeToBlack(Action postHook = null)
-        => StartCoroutine(C_FadeToBlack(postHook));
+    [Button]
+    public void FadeToFullyOpaque(Action postHook = null)
+        => StartCoroutine(C_FadeToFullyOpaque(postHook));
 
-    public void FadeToVisible(Action postHook = null)
-        => StartCoroutine(routine: C_FadeToVisible(postHook));
+    [Button]
+    public void FadeToFullyTransparent(Action postHook = null)
+        => StartCoroutine(routine: C_FadeToFullyTransparent(postHook));
 
-    public void FadeInAndOut()
-    {
-        StartCoroutine(C_FadeInAndOut());
-    }
+    public void FadeInAndOut() => StartCoroutine(C_FadeInAndOut());
+
     public void FadeInAndOutCallback(Action? prehook = null, Action? midhook = null, Action? posthook = null, float? blackScreenTime = 0f)
-    {
-        StartCoroutine(C_FadeInAndOut(prehook, midhook, posthook,  blackScreenTime));
-    }
+            => StartCoroutine(routine: C_FadeInAndOut(prehook, midhook, posthook, blackScreenTime));
 
     IEnumerator C_FadeInAndOut(Action? prehook = null, Action? midhook = null, Action? posthook = null, float? blackScreenTime = 0f)
     {
         if (isFading) yield break;
         prehook?.Invoke();
 
-        yield return StartCoroutine(C_FadeToBlack(midhook));
+        yield return StartCoroutine(C_FadeToFullyOpaque(midhook));
 
         float fadeDuration = (1f / fadeStep) * incrementDelay;
         yield return new WaitForSeconds(fadeDuration * 0.5f);
 
         if(blackScreenTime > 0f) yield return new WaitForSeconds((float)blackScreenTime);
 
-        yield return StartCoroutine(C_FadeToVisible(posthook));
+        yield return StartCoroutine(C_FadeToFullyTransparent(posthook));
     }
 
 
 
-    IEnumerator C_FadeToBlack(Action? posthook = null)
+    IEnumerator C_FadeToFullyOpaque(Action? posthook = null)
     {
+        if (isFading) yield break;
         isFading = true;
-        Color fade = Color.black;
+        panel.gameObject.SetActive(true);
+
+        Color fade = panel.color;
         fade.a = 0;
+        panel.color = fade;
+
         float increment = 0;
         while (increment < 0.95f)
         {
@@ -75,11 +79,16 @@ public class FadeScreen : MonoBehaviour
         posthook?.Invoke();
     }
 
-    IEnumerator C_FadeToVisible(Action? posthook = null)
+    IEnumerator C_FadeToFullyTransparent(Action? posthook = null)
     {
+        if (isFading) yield break;
         isFading = true;
-        Color fade = Color.black;
+        panel.gameObject.SetActive(true);
+
+        Color fade = panel.color;
         fade.a = 1;
+        panel.color = fade;
+
         float increment = 1;
         while (increment > 0.05f)
         {

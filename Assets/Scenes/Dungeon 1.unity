@@ -280,43 +280,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 62330066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 963194241}
-        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ef01e3b115280d243b10681a4e57a82f, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 507025938}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: LoadSceneAfterDelay
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProgressionUpdater, Assembly-CSharp
-        m_MethodName: UpdateProgressionWithItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &62330066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2302,11 +2266,11 @@ Transform:
   m_GameObject: {fileID: 495201897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.8048542, y: -20.533955, z: -22.132187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507025937
 GameObject:
@@ -2346,12 +2310,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507025937}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 270.08228, y: 246.56628, z: -314.67773}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 268.27744, y: 226.03233, z: -336.80994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561344827
 GameObject:
@@ -2632,12 +2596,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703794536}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8048542, y: -17.533955, z: -22.132187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &733065756
 GameObject:
@@ -2713,7 +2677,6 @@ GameObject:
   m_Component:
   - component: {fileID: 778151114}
   - component: {fileID: 778151116}
-  - component: {fileID: 778151115}
   m_Layer: 0
   m_Name: Bg aud
   m_TagString: Untagged
@@ -2736,33 +2699,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 963194228}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &778151115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778151113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bb5099010ed0844a21766d2fd45310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onStartHook:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 778151116}
-        m_TargetAssemblyTypeName: AudioPlay, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &778151116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,8 +3321,6 @@ GameObject:
   - component: {fileID: 963194236}
   - component: {fileID: 963194237}
   - component: {fileID: 963194238}
-  - component: {fileID: 963194240}
-  - component: {fileID: 963194239}
   - component: {fileID: 963194241}
   m_Layer: 0
   m_Name: Player
@@ -3486,7 +3420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cc553123e10714bad2f1fc4d12f37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfEncounters: 3
+  enemyDb: {fileID: 0}
   encountersLeft: 2
   encounterSectionObjsMoveAmount: 50
   moveTime: 4
@@ -3515,7 +3449,7 @@ MonoBehaviour:
           m_CallState: 2
   dungeonCompleteHook:
     delayType: 0
-    delay: 1
+    delay: 3
     random: {x: 0, y: 0}
     get:
       m_PersistentCalls:
@@ -3857,52 +3791,6 @@ MonoBehaviour:
   objToMove: {fileID: 963194225}
   origPos: {fileID: 493120886}
   movedPos: {fileID: 1912663088}
---- !u!114 &963194239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bb5099010ed0844a21766d2fd45310, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onStartHook:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 963194240}
-        m_TargetAssemblyTypeName: FadeScreen, Assembly-CSharp
-        m_MethodName: FadeToVisible
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &963194240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d35162f3e835b48ba7914db5f353e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFading: 0
-  panel: {fileID: 1922574146}
-  incrementDelay: 0.06
-  fadeStep: 0.01
-  localPostHook:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &963194241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5478,12 +5366,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497604172}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.3695, y: 27.256891, z: 17.420433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.174353, y: 6.7229366, z: -4.711754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537038404
 GameObject:
@@ -5575,6 +5463,44 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1568415594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568415595}
+  m_Layer: 0
+  m_Name: Scene Dependancies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1568415595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568415594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8048542, y: 20.533955, z: 22.132187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1743775316}
+  - {fileID: 1497604174}
+  - {fileID: 507025939}
+  - {fileID: 1801795924}
+  - {fileID: 703794537}
+  - {fileID: 495201900}
+  - {fileID: 1698142130}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592989470
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,7 +5604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698142130}
   m_Layer: 0
-  m_Name: Next Encounter Pos
+  m_Name: 'RepeatWorld: Next Encounter Pos'
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5693,11 +5619,11 @@ Transform:
   m_GameObject: {fileID: 1698142129}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalPosition: {x: -1.8048542, y: -20.533955, z: 27.867813}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738928240
 GameObject:
@@ -5785,9 +5711,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e1b9afb9229249943a70a1d0d070c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonData: {fileID: 11400000, guid: 15202398a86e0344b8cefdcfd6d3f303, type: 2}
-  linear: 1
+  dungeonData: {fileID: 11400000, guid: b56d3c43d25b95447a5d2ae169c40abf, type: 2}
   currentEnemy: 0
+  completeLevelButton: {fileID: 62330065}
+  playerAudioplay: {fileID: 963194241}
+  uiClickSound: {fileID: 8300000, guid: ec2998ea0d79f5c45ad9526a1b4a3f70, type: 3}
+  bgMusicAudioPlay: {fileID: 778151116}
+  sceneChanger: {fileID: 507025938}
+  completedSceneIndex: 2
+  fadeScreen: {fileID: 1922574150}
 --- !u!4 &1743775316
 Transform:
   m_ObjectHideFlags: 0
@@ -5797,11 +5729,11 @@ Transform:
   m_GameObject: {fileID: 1743775314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.73473, y: 13.321362, z: 14.196465}
+  m_LocalPosition: {x: 41.929874, y: -7.212593, z: -7.9357224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1795632479
 PrefabInstance:
@@ -5891,11 +5823,11 @@ Transform:
   m_GameObject: {fileID: 1801795923}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.40794, y: 24.050161, z: 11.843258}
+  m_LocalPosition: {x: 17.603086, y: 3.5162067, z: -10.288929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1568415595}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1801795925
 MonoBehaviour:
@@ -6298,6 +6230,8 @@ GameObject:
   - component: {fileID: 1922574148}
   - component: {fileID: 1922574147}
   - component: {fileID: 1922574146}
+  - component: {fileID: 1922574150}
+  - component: {fileID: 1922574149}
   m_Layer: 0
   m_Name: Black Fade
   m_TagString: Untagged
@@ -6362,6 +6296,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1922574149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922574145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97bb5099010ed0844a21766d2fd45310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStartHook:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1922574150}
+        m_TargetAssemblyTypeName: FadeScreen, Assembly-CSharp
+        m_MethodName: FadeToFullyTransparent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1922574150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922574145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d35162f3e835b48ba7914db5f353e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFading: 0
+  panel: {fileID: 1922574146}
+  incrementDelay: 0.03
+  fadeStep: 0.02
+  localPostHook:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1982627815
 GameObject:
   m_ObjectHideFlags: 0
@@ -7623,14 +7603,8 @@ MeshRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1743775316}
-  - {fileID: 495201900}
-  - {fileID: 1801795924}
-  - {fileID: 703794537}
+  - {fileID: 1568415595}
   - {fileID: 963194228}
-  - {fileID: 1698142130}
   - {fileID: 132003063}
   - {fileID: 1811594473}
-  - {fileID: 507025939}
   - {fileID: 733065757}
-  - {fileID: 1497604174}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 679922516935461239}
   - component: {fileID: 3070186455941720216}
   m_Layer: 0
-  m_Name: Skeleton Warrior
+  m_Name: Skeleton Warrior (Enemy)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
