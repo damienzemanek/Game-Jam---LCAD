@@ -15657,6 +15657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1009709855}
+  - component: {fileID: 1009709856}
   m_Layer: 0
   m_Name: Save Caller
   m_TagString: Untagged
@@ -15679,6 +15680,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009709856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009709854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd4fe9400fb27546b5c174f7e942cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1015141940
 GameObject:
   m_ObjectHideFlags: 0
@@ -26421,13 +26434,13 @@ MonoBehaviour:
   onStartHook:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1009709854}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1009709856}
+        m_TargetAssemblyTypeName: SaveCaller, Assembly-CSharp
+        m_MethodName: SaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -30292,7 +30305,7 @@ GameObject:
   - component: {fileID: 2007533312}
   - component: {fileID: 2007533313}
   m_Layer: 0
-  m_Name: PLayer
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
