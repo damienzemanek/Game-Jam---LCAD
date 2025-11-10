@@ -51,7 +51,9 @@ public class Encounter : RuntimeInjectableMonoBehaviour
         {
             GameObject prefab = enemies.completeItemPrefab;
             if (!prefab) this.Error("Did not get a prefab");
-            Instantiate(original: prefab, completeItemSpawnPoint);
+            GameObject spawned = Instantiate(original: prefab, completeItemSpawnPoint);
+            if(world.spawnedPickup != null) world.spawnedPickup = null;
+            world.spawnedPickup = spawned;
         }
     }
 

@@ -98,7 +98,6 @@ MonoBehaviour:
         currentAttack: 0
         attacks:
         - rid: 1805014573513965623
-        - rid: 1805014573513965624
         - rid: 1805014573513965625
     - rid: 1805014573513965619
       type: {class: Combos, ns: , asm: Assembly-CSharp}
@@ -136,21 +135,14 @@ MonoBehaviour:
         _chargeUpTime: 1
         projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 3930280260571890038}
-        rotation: {x: 3, y: 0, z: 0}
-    - rid: 1805014573513965624
-      type: {class: Directional, ns: , asm: Assembly-CSharp}
-      data:
-        _chargeUpTime: 1
-        projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
-        startPos: {fileID: 5005679426571587399}
-        rotation: {x: -3, y: 0, z: 0}
+        rotation: {x: 5, y: 0, z: 0}
     - rid: 1805014573513965625
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:
         _chargeUpTime: 1
         projectilePrefab: {fileID: 9179178493342575502, guid: 1d9501d09c4c39a488bc19e93afabed0, type: 3}
         startPos: {fileID: 3930280260571890038}
-        rotation: {x: 3, y: -9, z: 0}
+        rotation: {x: -5, y: 0, z: 0}
     - rid: 1805014573513965626
       type: {class: Directional, ns: , asm: Assembly-CSharp}
       data:

@@ -1179,18 +1179,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1070526080}
-        m_TargetAssemblyTypeName: FadeScreen, Assembly-CSharp
-        m_MethodName: FadeToBlack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1134418533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,28 +1309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c181ec9f9732a0468b02edd1be8b487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - rid: 1805014547506921500
-  - rid: 1805014547506921501
-  - rid: 1805014547506921535
+  items: []
   references:
     version: 2
-    RefIds:
-    - rid: 1805014547506921500
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 0
-    - rid: 1805014547506921501
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 1
-    - rid: 1805014547506921535
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 2
+    RefIds: []
 --- !u!4 &1315787826
 Transform:
   m_ObjectHideFlags: 0

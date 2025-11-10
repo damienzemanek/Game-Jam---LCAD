@@ -19,11 +19,13 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
 
     [SerializeField] public UnityEventPlus startCombatHook;
     [SerializeField] UnityEventPlus dungeonCompleteHook;
+    [SerializeField] public GameObject spawnedPickup;
 
     [ShowInInspector] public Encounter currentEncounter { get => encounters == null? null : encounters[0]; }
 
     private void Awake()
     {
+        spawnedPickup = null;
         if (startCombatHook == null) startCombatHook = new UnityEventPlus();
     }
 
@@ -33,6 +35,8 @@ public class RepeatWorld : MonoBehaviour, IDependencyProvider
         encountersLeft = amountOfEncounters;
         TransitionToNextEncounter();
     }
+
+    public void GrabItem() => spawnedPickup.TryGet<CompleteItem>().Grab();
 
     [Button]
     public void TransitionToNextEncounter()

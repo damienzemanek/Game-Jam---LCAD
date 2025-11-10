@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 677390321}
   - component: {fileID: 677390320}
   - component: {fileID: 677390324}
+  - component: {fileID: 677390325}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -239,6 +240,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
+--- !u!114 &677390325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677390319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180fa7ebf73516c4eb4220f810c5392b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTexts:
+  - {fileID: 714716943}
+  - {fileID: 1106849968}
+  - {fileID: 1119481882}
 --- !u!1 &714716941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,118 +1105,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4126.7354, y: 2729.7031}
   m_EdgeRadius: 0
---- !u!1 &1315787824
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1315787826}
-  - component: {fileID: 1315787825}
-  m_Layer: 0
-  m_Name: GroceryItemStorage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1315787825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315787824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c181ec9f9732a0468b02edd1be8b487, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-  - rid: 1805014547506921515
-  - rid: 1805014547506921516
-  - rid: 1805014547506921517
-  references:
-    version: 2
-    RefIds:
-    - rid: 1805014547506921515
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 0
-    - rid: 1805014547506921516
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 3
-    - rid: 1805014547506921517
-      type: {class: GroceryItem, ns: , asm: Assembly-CSharp}
-      data:
-        _have: 0
-        _type: 4
---- !u!4 &1315787826
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1315787824}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1430947219}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1430947217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1430947219}
-  - component: {fileID: 1430947218}
-  m_Layer: 0
-  m_Name: DataSaver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1430947218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430947217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d9cfcb76ae7e74c9d26f798caa4338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  persistanceReferenceToList: {fileID: 1315787825}
---- !u!4 &1430947219
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430947217}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 294.4332, y: 139.73529, z: -172.74759}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1315787826}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452571720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,8 +1477,6 @@ MonoBehaviour:
   - {fileID: 714716943}
   - {fileID: 1106849968}
   - {fileID: 1119481882}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &2105909571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,5 +1576,4 @@ SceneRoots:
   - {fileID: 716477408}
   - {fileID: 677390323}
   - {fileID: 927815282}
-  - {fileID: 1430947219}
   - {fileID: 1717712580}

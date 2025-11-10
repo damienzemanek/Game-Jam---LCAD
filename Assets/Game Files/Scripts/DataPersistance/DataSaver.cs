@@ -18,6 +18,7 @@ public class DataSaver : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        EnsureListRef();
         LoadGroceryList();
     }
 
@@ -46,34 +47,48 @@ public class DataSaver : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
-    [Button, ExecuteAlways]
-    public void LoadGroceryList()
+    [Sirenix.OdinInspector.Button, ExecuteAlways]
+    public void LoadGroceryList(bool createIfMissing = true)
     {
-        string path = Application.persistentDataPath + "/savefile.json";
-        print(message: "a");
+        EnsureListRef();
 
-        if (!File.Exists(path)) return;
+        string path = Path.Combine(Application.persistentDataPath, "savefile.json");
+
+        if (!File.Exists(path))
+        {
+            if (createIfMissing)
+            {
+                persistanceReferenceToList.items = GetDefaultItems();
+                SaveGroceryList(); 
+            }
+            return;
+        }
 
         var json = File.ReadAllText(path);
         var data = JsonUtility.FromJson<SaveData>(json);
 
-        if (data?.items == null || data.items == null)
-        {
-            Debug.LogWarning("Save file had no items.");
-            return;
-        }
-
-        if (persistanceReferenceToList == null)
-            persistanceReferenceToList = new GroceryList();
-
-        persistanceReferenceToList.items ??= new List<GroceryItem>();
-        persistanceReferenceToList.items.Clear();
-        persistanceReferenceToList.items.AddRange(data.items);
+        persistanceReferenceToList.items = (data?.items != null && data.items.Count > 0)
+            ? data.items
+            : GetDefaultItems();
 
         Debug.Log($"Loaded {persistanceReferenceToList.items.Count} items from {path}");
-
-
     }
+
+    void EnsureListRef()
+    {
+        if (persistanceReferenceToList != null) return;
+        persistanceReferenceToList = FindFirstObjectByType<GroceryList>(FindObjectsInactive.Include);
+        if (persistanceReferenceToList == null)
+            persistanceReferenceToList = new GameObject("GroceryList").AddComponent<GroceryList>();
+    }
+    static List<GroceryItem> GetDefaultItems() => new List<GroceryItem>
+    {
+        new GroceryItem(GroceryItem.ItemType.Apple),
+        new GroceryItem(GroceryItem.ItemType.Cereal),
+        new GroceryItem(GroceryItem.ItemType.Soda)
+    };
+
+
 
     public void OnApplicationQuit()
     {

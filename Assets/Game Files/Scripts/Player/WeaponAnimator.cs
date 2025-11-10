@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Extensions;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [DefaultExecutionOrder(501)]
 public class WeaponAnimator : MonoBehaviour
@@ -15,9 +16,15 @@ public class WeaponAnimator : MonoBehaviour
     [SerializeField] string[] atkToLeft;
     [SerializeField] string[] atkToRight;
 
+    [SerializeField] VisualEffect rightToLeft;
+    [SerializeField] VisualEffect leftToRight;
+
     private void Awake()
     {
         right = false;
+
+        rightToLeft.gameObject.SetActive(false);
+        leftToRight.gameObject.SetActive(false);    
     }
 
     private void OnEnable()
@@ -36,13 +43,20 @@ public class WeaponAnimator : MonoBehaviour
 
     public void Attack()
     {
-        
+
         this.Log("attking");
         if (right == true)
+        {
             animator.CrossFade(stateName: atkToRight.Rand(), crossFade);
-        else 
+            leftToRight.gameObject.SetActive(true);
+            leftToRight.Play();
+        }
+        else
+        {
             animator.CrossFade(stateName: atkToLeft.Rand(), crossFade);
-
+            rightToLeft.gameObject.SetActive(true);
+            rightToLeft.Play();
+        }
         right = !right;
 
     }

@@ -14,8 +14,9 @@ public class GroceryList : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
+        else if (Instance != this) { Destroy(gameObject); return; }
+
     }
 
     public bool hasAllItems()
@@ -44,9 +45,16 @@ public class GroceryItem
     public bool have { get => _have ; set => _have = value; }
     public ItemType type { get => _type; set => _type = value; }
 
+    public GroceryItem() { }
+
+    public GroceryItem(ItemType type)
+    {
+        _type = type;
+    }
+
     public GroceryItem Copy()
     {
-        GroceryItem newItem = new GroceryItem();
+        GroceryItem newItem = new GroceryItem(type);
         newItem.type = type;
         newItem.have = have;
         return newItem;
