@@ -5803,9 +5803,7 @@ MonoBehaviour:
   linear: 1
   currentEnemy: 0
   enemyPrefabs:
-  - {fileID: 6189182986158129710, guid: f94127fadf2a2b84fb1e1061053ebaaa, type: 3}
-  - {fileID: 6602060678874453838, guid: 1d40a97a725b96245a5653249412e24e, type: 3}
-  - {fileID: 6189182986158129710, guid: f94127fadf2a2b84fb1e1061053ebaaa, type: 3}
+  - {fileID: 260653483891448513, guid: 70289d6496fc89d469bf3aaf03f8f14c, type: 3}
   completeItemPrefab: {fileID: 5907734931599413591, guid: 0e07a0cd96509c04ba06123b50835d26, type: 3}
 --- !u!4 &1743775316
 Transform:

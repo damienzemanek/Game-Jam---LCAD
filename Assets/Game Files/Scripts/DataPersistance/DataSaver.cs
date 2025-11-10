@@ -18,8 +18,7 @@ public class DataSaver : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-        EnsureListRef();
-        LoadGroceryList();
+        persistanceReferenceToList = FindAnyObjectByType<GroceryList>();
     }
 
     public GroceryList persistanceReferenceToList;
@@ -47,11 +46,25 @@ public class DataSaver : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
+    public void SaveGroceryListManual(List<GroceryItem> items)
+    {
+        if (persistanceReferenceToList == null) this.Error("No grocery list is assigned");
+
+
+        SaveData data = new SaveData();
+
+        data.items = items
+            .Select(i => i.Copy())
+            .ToList();
+
+        string json = JsonUtility.ToJson(data, true);
+
+        File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    }
+
     [Sirenix.OdinInspector.Button, ExecuteAlways]
     public void LoadGroceryList(bool createIfMissing = true)
     {
-        EnsureListRef();
-
         string path = Path.Combine(Application.persistentDataPath, "savefile.json");
 
         if (!File.Exists(path))
@@ -72,15 +85,22 @@ public class DataSaver : MonoBehaviour
             : GetDefaultItems();
 
         Debug.Log($"Loaded {persistanceReferenceToList.items.Count} items from {path}");
+        persistanceReferenceToList.items.PrintList(i => i.type);
     }
 
-    void EnsureListRef()
+    public bool hasSaveFile()
     {
-        if (persistanceReferenceToList != null) return;
-        persistanceReferenceToList = FindFirstObjectByType<GroceryList>(FindObjectsInactive.Include);
-        if (persistanceReferenceToList == null)
-            persistanceReferenceToList = new GameObject("GroceryList").AddComponent<GroceryList>();
+        string path = Path.Combine(Application.persistentDataPath, "savefile.json");
+        return File.Exists(path);
     }
+
+    public void InitializeData(GroceryList groceryList)
+    {
+        groceryList.items = GetDefaultItems();
+        SaveGroceryListManual(groceryList.items);
+        groceryList.items.PrintList(i => i.type);
+    }
+
     static List<GroceryItem> GetDefaultItems() => new List<GroceryItem>
     {
         new GroceryItem(GroceryItem.ItemType.Apple),

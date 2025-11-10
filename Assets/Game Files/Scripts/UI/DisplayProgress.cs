@@ -9,6 +9,7 @@ using UnityEngine;
 public class DisplayProgress : MonoBehaviour
 {
     GroceryList list;
+
     [SerializeField] List<TextMeshProUGUI> itemTexts;
     private void Start()
     {
@@ -26,7 +27,7 @@ public class DisplayProgress : MonoBehaviour
             GroceryItem item = list.items[i];
             TextMeshProUGUI text = itemTexts[i];
 
-            
+
             if (item.have) text.text = $"<s>{item.type.ToString()}</s>";
             else text.text = item.type.ToString();
         }

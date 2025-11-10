@@ -79,6 +79,10 @@ public class PlayerCombat : MonoBehaviour
     {
         EnemyAttack();
         EnemyDefence();
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+            if (enemy != null)
+                KillEnemy();
     }
 
     public void EnterCombat()

@@ -305,7 +305,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 963194233}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ProgressionUpdater, Assembly-CSharp
         m_MethodName: UpdateProgressionWithItem
         m_Mode: 1
@@ -3381,7 +3381,6 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194232}
-  - component: {fileID: 963194233}
   - component: {fileID: 963194234}
   - component: {fileID: 963194236}
   - component: {fileID: 963194237}
@@ -3718,19 +3717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   claimButton: {fileID: 62330063}
---- !u!114 &963194233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d58972049ab5b643bf2b59fab251fd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
 --- !u!114 &963194234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5799,14 +5785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8e1b9afb9229249943a70a1d0d070c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalLevel: 0
+  dungeonData: {fileID: 11400000, guid: 15202398a86e0344b8cefdcfd6d3f303, type: 2}
   linear: 1
   currentEnemy: 0
-  enemyPrefabs:
-  - {fileID: 260653483891448513, guid: 9b72cf48580456642ba6be9fe301e970, type: 3}
-  - {fileID: 260653483891448513, guid: 645ea4b7e76abcd49aa52c761f224f28, type: 3}
-  - {fileID: 6602060678874453838, guid: 152f2cb3341eb0445880a6616d04791d, type: 3}
-  completeItemPrefab: {fileID: 5907734931599413591, guid: 0e07a0cd96509c04ba06123b50835d26, type: 3}
 --- !u!4 &1743775316
 Transform:
   m_ObjectHideFlags: 0

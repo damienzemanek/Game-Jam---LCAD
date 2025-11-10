@@ -11,7 +11,7 @@ using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 public class Encounter : RuntimeInjectableMonoBehaviour
 {
     [Inject] RepeatWorld world;
-    [Inject] EnemyDb enemies;
+    [Inject] EnemyDb dungeonDB;
     [SerializeField] Transform spawnPoint;
     [SerializeField] Transform completeItemSpawnPoint;
     [SerializeField, ReadOnly] Enemy _currentEnemy;
@@ -19,7 +19,7 @@ public class Encounter : RuntimeInjectableMonoBehaviour
     public Enemy currentEnemy { get => _currentEnemy; set => _currentEnemy = value; }
 
 
-    private void Awake()
+    private void Start()
     {
         currentEnemy = null;
     }
@@ -28,11 +28,11 @@ public class Encounter : RuntimeInjectableMonoBehaviour
     {
         currentEnemy = null;
 
-        if (!enemies) this.Error("No enemy db found");
+        if (!dungeonDB) this.Error("No enemy db found");
         if (!spawnPoint) this.Error("Spawn point not set");
         this.Log("Spawning enemy");
 
-        GameObject prefab = enemies.GetEnemyPrefab();
+        GameObject prefab = dungeonDB.GetEnemyPrefab();
         if (!prefab) this.Error("Did not get a prefab");
 
         currentEnemy = Instantiate(prefab, spawnPoint).TryGet<Enemy>();
@@ -43,14 +43,15 @@ public class Encounter : RuntimeInjectableMonoBehaviour
     {
         currentEnemy = null;
 
-        if (!enemies) this.Error("No enemy db found");
+        if (!dungeonDB) this.Error("No enemy db found");
         if (!spawnPoint) this.Error("Spawn point not set");
         this.Log("Spawning enemy");
 
-        if (!enemies.finalLevel)
+        if (!dungeonDB.dungeonData.final)
         {
-            GameObject prefab = enemies.completeItemPrefab;
+            GameObject prefab = dungeonDB.dungeonData.completeItem;
             if (!prefab) this.Error("Did not get a prefab");
+            
             GameObject spawned = Instantiate(original: prefab, completeItemSpawnPoint);
             if(world.spawnedPickup != null) world.spawnedPickup = null;
             world.spawnedPickup = spawned;

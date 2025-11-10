@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Extensions
 {
@@ -11,6 +15,44 @@ namespace Extensions
         static string Colorize(string text, string colorHex) => $"<color={colorHex}>{text}</color>";
         static string Bold(string text) => $"<b>{text}</b>";
 
+        public static void PrintList<T>(this List<T> list) where T : class
+        {
+            if (list == null) { list.Log("List is <null>"); return; }
+
+            string contents;
+
+            // If the list items are Unity objects, print their .name
+            if (typeof(UnityEngine.Object).IsAssignableFrom(typeof(T)))
+            {
+                contents = string.Join(", ", list
+                    .Cast<UnityEngine.Object>()
+                    .Select(o => o != null ? o.name : "<null>"));
+            }
+            else
+            {
+                // Regular object list -> print normally
+                contents = string.Join(", ", list);
+            }
+
+            string count = $"[{list.Count} VALUES]";
+            list.Log($"{contents} {count}");
+        }
+
+        public static void PrintList<T, TOut>(this List<T> list, Func<T, TOut> selector) where T : class
+        {
+            if (list == null)
+            {
+                list.Log("List is <null>");
+                return;
+            }
+
+            var values = list.Select(selector).ToList();
+
+            string contents = string.Join(", ", values);
+            string count = $"[{values.Count} VALUES]";
+
+            list.Log($"{contents} {count}");
+        }
 
 
         public static void Log(this object obj, string msg = "")
