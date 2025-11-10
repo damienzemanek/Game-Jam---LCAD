@@ -55,19 +55,16 @@ public class EnemyDb : MonoBehaviour, IDependencyProvider
 
         if (!dungeonData.final)
         {
-            //regular levels
-            completeLevelButton.onClick.AddListener(() => playerAudioplay.Play(uiClickSound));
             completeLevelButton.onClick.AddListener(() => sceneChanger.LoadSceneAfterDelay(completedSceneIndex));
-            completeLevelButton.onClick.AddListener(fadeScreen.FadeToFullyOpaque);
+            completeLevelButton.onClick.AddListener(UpdateProgressionWithItem);
         }
         else
-        {
-            //final level
-            completeLevelButton.onClick.AddListener(() => playerAudioplay.Play(uiClickSound));
             completeLevelButton.onClick.AddListener(() => sceneChanger.LoadSceneAfterDelay(dungeonData.finalSceneIndex));
-            completeLevelButton.onClick.AddListener(fadeScreen.FadeToFullyOpaque);
 
-        }
+
+        completeLevelButton.onClick.AddListener(fadeScreen.FadeToFullyOpaque);
+        completeLevelButton.onClick.AddListener(call: () => playerAudioplay.Play(uiClickSound));
+        completeLevelButton.onClick.AddListener(DebugPrint);
     }
 
     private void Start()
@@ -104,5 +101,10 @@ public class EnemyDb : MonoBehaviour, IDependencyProvider
             this.Log($"Updated {match.type} to {match.have}");
         }
 
+    }
+
+    void DebugPrint()
+    {
+        this.Log("Pressed Compelte button");
     }
 }

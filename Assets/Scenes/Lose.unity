@@ -495,7 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFading: 0
   panel: {fileID: 698084795}
-  incrementDelay: 0.05
+  incrementDelay: 0.03
   fadeStep: 0.01
   localPostHook:
     m_PersistentCalls:
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db81e51b86bf0b47bf3130384b2332b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 0.5
 --- !u!4 &814234802
 Transform:
   m_ObjectHideFlags: 0
